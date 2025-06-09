@@ -1,0 +1,43 @@
+/* ConfirmRes.css */
+
+.confirmation-container { /* A konténer */
+  display: flex;
+  flex-direction: column;
+  padding: 7rem;
+  background-color: #fff8e1;
+}
+
+.confirmation-title { /* A cím */
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.confirmation-details { /* A részletek */
+  margin: 1rem auto;
+  padding: 1rem;
+  background: #f4ce14;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h6 {  /* A szöveg */
+  margin: 1rem 0;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+
+@media (max-width: 768px) {
+  .confirmation-title {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+
+  h6 {
+    font-size: 0.9rem;
+  }
+}
+

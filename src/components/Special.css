@@ -1,0 +1,10 @@
+  /* Special Section */
+  .special-body {   /* A special-body class a Special.js-ben van. */
+    display: flex;  /* Flexbox elrendezés. Egymás mellé kerül nem egymás alá. */
+    flex-wrap: wrap;  /* Ha kifut a sorból, akkor sortörés. Így ha kicsinyítjük a képernyőt egymás alá rakja őket.*/
+    justify-content: center;
+  }
+    
+  #special h2 { /* Az id-t a Special.js-ben adtuk meg. */
+    text-align: center;
+  } 

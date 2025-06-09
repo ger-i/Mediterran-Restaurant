@@ -1,0 +1,89 @@
+input:invalid {
+  border-color: red;
+}
+
+/* Fő konténer */
+.booking-form-container {
+  margin: 0 auto; /* Középre igazítás */
+  padding: 1rem;
+}
+
+/* Címsor */
+.booking-form-title {
+  margin-bottom: 2rem;
+  text-align: center; /* Középre igazított szöveg */
+  font-size: 1.6rem; /* Nagyobb betűméret */
+}
+
+/* Űrlap layout */
+.form-layout {
+  display: flex; /* Rugalmas elrendezés */
+  flex-wrap: wrap; /* Törés kisebb kijelzőn */
+  justify-content: center; /* Középre igazítás */
+  text-align: center; /* Középre igazított szöveg */
+}
+
+.input-container {
+  flex: 0 0 33%;  /* 33% szélesség a név és emailnél */
+  margin-bottom: 2rem;
+}
+
+.wide-input-container {
+  flex: 0 0 50%;  /* 50% szélesség a dátum és időnél */
+  margin-bottom: 1rem;
+}
+
+
+label {
+  display: block; /* Minden címke új sorban */
+  margin-bottom: 0.5rem;
+  font-weight: bold;  /* Félkövér betű */
+}
+
+/* Input mezők */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+.form-select {
+  width: 90%; /* 90%-os szélesség */
+  padding: 0.5rem;
+  border-radius: 5px;
+  box-sizing: border-box; /* A padding ne növelje a szélességet */
+}
+
+/* Gomb */
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  margin-top: 6rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;  /* Áttűnés */
+  font-size: 1rem;
+}
+
+button[type="submit"]:hover {
+  background-color: #0069d9;
+}
+
+
+
+@media (max-width: 768px) {
+  .input-container, .wide-input-container {
+    flex: 0 0 100%;
+    margin-bottom: 6px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[type="date"],
+  input[type="time"],
+  .form-select {
+    width: 60%; /* 60%-os szélesség */
+  }
+}

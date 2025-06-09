@@ -1,0 +1,27 @@
+.menu-container {   /* A menü konténerének stílusai */
+    max-width: 75rem; /* A konténer maximális szélessége 75 rem. Így 3 kártya lesz egy sorba */
+    margin: 0 auto; /* A konténer középre igazítása */
+}
+
+.menu-title {
+    font-size: 2rem; /* Kétszerese az alapértelmezett méretnek */
+    color: #F4CE14;
+    text-align: center;
+}
+
+.menu-subtitle {
+    font-size: 1.4rem; 
+    text-align: center;
+    margin-top: 3rem;
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .menu-title {
+        font-size: 1.6rem;
+    }
+
+    .menu-subtitle {
+        font-size: 1.2em; 
+    }
+}

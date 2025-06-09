@@ -1,0 +1,93 @@
+.about-section {  
+  max-width: 75rem;
+  margin: 0 auto;
+  margin-block: 1rem; /*A margin-block tulajdonság egyszerre állítja be a felső (margin-top) és alsó (margin-bottom) margót. Ez egy modernebb és rövidebb írásmód.*/   
+  display: flex; /*Így került a szöveg mellé a kép és nem alá*/
+  /*flex-wrap: wrap;*/
+  justify-content: space-between; /*A flexbox elemeket a konténerben egyenletesen osztja el, a konténer szélességét figyelembe véve. */
+}
+
+.about-content {
+  flex: 0 0 48%;  /*A flex tulajdonságok a flexbox elemek méretét, sorrendjét és viselkedését szabályozzák. A flex tulajdonságok három értéket tartalmaznak: flex-grow, flex-shrink és flex-basis. */
+}
+
+.about-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #F4CE14;
+}
+
+.about-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.about-text {
+  line-height: 1.6rem;  /*A line-height tulajdonság beállítja a sorok közötti távolságot egy elemben. */
+  color: black;
+  text-align: left; /*A szöveg vízszintes igazítását állítja be - ebben az esetben balra igazítja a szöveget. */
+}
+
+.about-text-open::before {
+  content: "⏰"; /* Unicode óra ikon */
+  margin-right: 0.5rem; /* Kis térköz az ikon és a szöveg között */
+}
+
+.about-text-reservation::before {
+  content: "📅"; /* Unicode óra ikon */
+  margin-right: 0.5rem; /* Kis térköz az ikon és a szöveg között */
+}
+
+.about-text-open,
+.about-text-reservation {
+  line-height: 1.6rem;
+  margin-top: 50px;
+  color: #495e57;
+  text-align: left;
+  font-weight: bold;
+}
+
+.about-images { /*A képek elrendezését szabályozza */
+  margin-top: 3rem;
+}
+
+.image-container {  
+  margin-bottom: 10px;
+}
+
+.about-pic {
+  width: 23rem;
+  height: 17rem;
+  margin-bottom: 5px;
+  border-radius: 5%;
+}
+
+
+@media screen and (max-width: 1200px) { /*A max-width tulajdonság a képernyő szélességét határozza meg, amelyen belül a stílusok érvényesek. */
+  .about-section{
+    margin-right: 2rem;
+    margin-left: 2rem;
+  }
+}
+
+
+@media screen and (max-width: 768px) {  /*A max-width tulajdonság a képernyő szélességét határozza meg, amelyen belül a stílusok érvényesek. */
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+
+  .about-text-open,
+  .about-text-reservation {
+    text-align: center;
+  }
+  
+  .about-pic {
+    width: 21rem;
+    height: 15rem;
+  }
+}

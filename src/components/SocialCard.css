@@ -1,0 +1,56 @@
+/* SocialCard.css */
+  .social-card-container {  /* A konténer stílusa */
+    text-align: center; 
+    background: #EDEFEE;
+  }
+
+  .testimonial-heading {  /* A cím stílusa */
+    padding: 16px 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .social-card-list { /* A kártyák elrendezése */
+    display: flex;  /* Flexbox elrendezés. Egymás mellé kerül nem egymás alá. */
+    flex-wrap: wrap;  /* Ha kifut a sorból, akkor sortörés. Így ha kicsinyítjük a képernyőt egymás alá rakja őket.*/
+    justify-content: center;  /* Középre igazítás */
+    gap: 10px;
+  }
+
+
+  .social-card {  /* A kártya stílusa */
+    background-color: white;
+    border: 1px solid #ddd; /* Szegély */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Árnyék */
+    margin: 5px 5px 20px 5px; 
+    transition: transform 0.3s; /* Animáció */
+    width: 18.5rem; /* A kártya szélessége */
+    height: 18.5rem;  /* A kártya magassága */
+    
+  }
+  
+  .social-card:hover {
+    transform: scale(1.05); /* Animáció */
+  }
+  
+  .card-image { /* A kép stílusa */
+    border-radius: 50%; /* Kerekítés */
+    margin: 0 auto; /* Középre igazítás */
+    display: block; /* Blokk elem */
+    margin-top: -10px;  /* A kép kicsit feljebb kerül */
+    border: 2.5px solid #495e57 ; /* Kép kerete */
+  }
+  
+  .card-content { /* A tartalom stílusa */
+    padding: 14px;    
+  }
+  
+  .card-content h3 {  /* A cím stílusa */
+    margin: 1px;
+   }
+  
+  .card-content p { /* A szöveg stílusa */
+    margin: 8px 0 0;
+    color: #666;
+  }

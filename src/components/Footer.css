@@ -1,0 +1,80 @@
+.footer-layout {
+  display: flex;  /* Rugalmas elrendezés */    
+  flex-wrap: wrap;  /* Több sorba kerülés */
+  width: 100%;  
+  background-color: #495e57;
+}
+
+.footer-branding, .footer-sitemap, .footer-contact {
+  flex: 1;  /*Egyenlően osztoznak a rendelkezésre álló helyen */
+  padding: 8px;
+  text-align: center; /* Középre igazítás */
+}
+
+.footer-branding img {
+  height: 5rem; /* Magasság */
+}
+
+.footer-sitemap h4, .footer-contact h4 {
+  font-size: 1.6rem; /* az oldaltérkép és kapcsolat szöveg */
+  color: white;
+}
+
+.footer-links {
+  display: block; /* Blokk elem */
+  color: white;
+  text-decoration: none;  /* Szöveg aláhúzás eltávolítása */
+  font-size: 1.5rem;
+  padding: 0.1rem;
+}
+
+address {
+  font-style: normal; /* Normál betűstílus */
+  color: white;
+}
+
+.footer-tel {
+  display: block; /* Blokk elem */
+  color: white;
+  text-decoration: none;  /* Szöveg aláhúzás eltávolítása */
+  padding-top: 2.3rem;
+}
+
+.footer-email {
+  display: block; /* Blokk elem */
+  color: white;
+  text-decoration: none;  /* Szöveg aláhúzás eltávolítása */
+}
+
+.footer-links:hover {
+  color: #F4CE14;
+}
+
+.footer-copyright {
+  padding: 10px 0;  /* Felső és alsó belső margó */
+  width: 100%;  /* Szélesség */
+}
+
+
+/* Média lekérdezés 1200px-nél kisebb képernyőkhöz */
+@media (max-width: 1200px) {
+  .footer-layout {
+    flex-direction: column;
+  }
+
+  .footer-branding img {
+    height: 3.1rem;
+  }
+
+  .footer-branding, .footer-sitemap, .footer-contact {
+    padding: 10px;
+  }
+
+  .footer-sitemap h4, .footer-contact h4 {
+    font-size: 1.2rem;
+  }
+
+  .footer-links {
+    font-size: 1.1rem;
+  }
+}

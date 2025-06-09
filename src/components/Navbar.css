@@ -1,0 +1,113 @@
+/* Navigációs sáv konténer */
+.navbar {
+  display: flex; /* Rugalmas elrendezés */
+  justify-content: space-between; /* Elemeken belüli térköz */
+  align-items: center; /* Középre igazítás */
+  padding-right: 20rem; /* Jobb oldali belső margó */
+  /*background-color: #495e57;*/
+}
+
+
+/* Logó */
+.logo img { 
+  padding-left: 19rem; /* Bal oldali belső margó */
+  margin: 1rem; /* Külső margó */
+}
+
+
+/* Menü ikon (hamburger) */
+.menu-icon {  
+  display: none; /* Alapértelmezett elrejtés */
+  flex-direction: column; /* Oszlop elrendezés. A 3 vonal(bar) egymás alatt lesz */
+  cursor: pointer; /* Kéz kurzor */
+  margin-top: 0.4rem; /* Felső margó */
+}
+
+.menu-icon .bar { /* Menü ikon sávok */
+  width: 25px; /* Szélesség */
+  height: 3px; /* Magasság */
+  background-color: black; /* Háttérszín */
+  margin: 4px 0; /* Felső és alsó margó 4px*/
+  transition: 0.5s; /* Átmeneti idő */
+}
+  
+
+/* Navigációs sáv linkek */
+.nav-links {
+  display: flex; /* Rugalmas elrendezés */ /* nem egymás alatt lesz*/
+  list-style: none; /* Lista stílus eltávolítása */
+  margin-top: 1.7rem; /* Felső margó */
+}
+
+.nav-links li {
+  margin: 0 1rem; /* 0 margót ad felül és alul. Jobb és bal margó a gyökér elem betűméretével megegyező*/
+}
+
+.nav-links a {
+  color: black; /* Szöveg színe */
+  text-decoration: none; /* Szöveg aláhúzás eltávolítása */
+  font-size: 1.1rem; /* az alapértelmezett betűméret 1.1-szerese lesz */
+}
+
+.nav-links a.active {
+  color: #04AA6D; /* Aktív link színe */
+}
+
+.nav-links a:hover {
+  color: #F4CE14; /* Szín változtatása egér fölé húzáskor */
+}
+
+
+
+
+/* Média lekérdezés 1200px-nél kisebb képernyőkhöz */
+@media (max-width: 1200px) {
+  .navbar {
+      padding-right: 1rem; /* Jobb oldali belső margó */
+  }  
+  
+  .logo img {
+    height: 3.1rem; /* Magasság */
+    padding-left: 1rem; /* Bal oldali belső margó */
+  }
+  
+  .nav-links a {
+    color: black; /* Szöveg színe */
+    font-size: 1rem; /* Betűméret */
+  }
+}
+
+
+/* Média lekérdezés kisebb képernyőkhöz */
+@media (max-width: 768px) {
+  .menu-icon {
+  display: flex; /* Menü ikon megjelenítése kisebb képernyőkön */
+  }
+
+  .nav-links {
+  display: none; /* Navigációs linkek elrejtése alapértelmezettként */
+  flex-direction: column; /* Oszlop elrendezés. Zöldt tömbe egymás alá kerülnek a linkek */
+  width: 100%; /* Szélesség. Így faltól falig ér a zöld tömb */
+  position: absolute; /* Abszolút pozíció */
+  top: 2.5rem; /* Felső pozíció */
+  background-color: #495e57; /* Háttérszín */
+  padding: 1rem 0; /* Felső és alsó belső margó */
+  }
+
+  .nav-links.visible {
+  display: flex; /* Navigációs linkek megjelenítése a burger menü kattintáskor */
+  }
+
+  .nav-links li {
+  margin: 1rem 0; /* Margó beállítása */
+  text-align: center; /* Középre igazítás */
+  }
+
+  .navbar.open .menu-icon .bar:nth-child(2) { 
+      transform: rotate(-55deg) translate(5px, 4px); /* Második sáv forgatása */
+  }
+    
+  .navbar.open .menu-icon .bar:nth-child(3) { 
+      transform: rotate(55deg) translate(-14px, -2px); /* Harmadik sáv forgatása */
+  }
+}
