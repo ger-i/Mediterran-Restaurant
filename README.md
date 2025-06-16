@@ -23,7 +23,7 @@ A Mediterrán Étterem egy modern, reszponzív éttermi weboldal, amely React.js
 
 ### 🎨 CSS Jellemzők
 - **Reszponzív design**: Többféle média query (1200px, 768px)
-- **Színséma**: Sötétzöld (#495e57) és sárga (#F4CE14) hangsúlyokkal
+- **Színséma**: Sötétzöld és sárga hangsúlyokkal
 - **Animációk**: Hover effektek, átmenetek
 - **Modern CSS**: Flexbox, CSS Grid használata
 
