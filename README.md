@@ -31,7 +31,7 @@ A Mediterrán Étterem egy modern, reszponzív éttermi weboldal, amely React.js
 
 ```
 src/
-├── components/          # Újrafelhasználható komponensek
+├── components/         # Újrafelhasználható komponensek
 │   ├── Card.js         # Étel kártyák megjelenítése
 │   ├── Footer.js       # Weboldal lábléc
 │   ├── Hero.js         # Főoldal hero szekció
