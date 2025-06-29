@@ -8,6 +8,11 @@
     border-radius: 15px; /*Lekerekíti a hero szekció sarkait.*/
 }
 
+.hero-container p {
+    color: white;
+    text-align: center;
+}
+
 .hero-title {
     font-weight: normal;    /*Normál betűtípust alkalmaz.*/
     color: #F4CE14; 
@@ -19,11 +24,6 @@
     font-weight: normal;    /*Normál betűtípust alkalmaz.*/
     color: #fff; 
     font-size: 1.5rem;  
-    text-align: center;
-}
-
-p {
-    color: white;
     text-align: center;
 }
 
@@ -52,15 +52,26 @@ A display: block; biztosítja, hogy a gomb blokkszintű elemként viselkedjen, �
 
 /* A következő media query a 1200px széles képernyőkön alkalmazza a stílusokat. */
 @media (max-width: 1200px) {
- .hero-title {
+
+    .hero-container {
+        width: 90%;
+        height: 16rem;
+    }
+    .hero-title {
         font-size: 1.5em;
- }
+    }
 
- .hero-subtitle {
+    .hero-subtitle {
         font-size: 1.2em;
- }
+    }
+}
 
- p {
-        font-size: 0.9em;
- }
+@media (max-width: 768px) {
+    .hero-container {
+        width: 90%;
+        height: 16rem;
+    }
+    .reserve-btn {
+        padding: 8px 24px;
+    }
 }
