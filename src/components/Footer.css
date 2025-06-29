@@ -55,6 +55,11 @@ address {
   width: 100%;  /* Szélesség */
 }
 
+.footer-copyright p {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin: 0;
+}
 
 /* Média lekérdezés 1200px-nél kisebb képernyőkhöz */
 @media (max-width: 1200px) {
