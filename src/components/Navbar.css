@@ -37,6 +37,7 @@
   display: flex; /* Rugalmas elrendezés */ /* nem egymás alatt lesz*/
   list-style: none; /* Lista stílus eltávolítása */
   margin-top: 1.7rem; /* Felső margó */
+  z-index: 1000; /* Magas z-index, hogy a navigációs sáv mindig a tetején legyen */
 }
 
 .nav-links li {
