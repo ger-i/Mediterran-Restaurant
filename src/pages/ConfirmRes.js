@@ -7,19 +7,18 @@
 import PropTypes from 'prop-types'; // A PropTypes segítségével ellenőrizhetjük, hogy a kapott adatok megfelelnek-e az elvárásainknak.
 import "./ConfirmRes.css"
 
-const ConfirmRes = ({ conf }) => {  // A ConfirmRes komponensünk a foglalás megerősítését jeleníti meg.
-    return (  // A return metódus visszaadja a komponensünk által megjelenített JSX kódot.
-      <>
-        <section className="confirmation-container">  {/* A confirmation-container szekció egyedi azonosítóval rendelkezik, amely segítségével a CSS-ben könnyen elérhetjük. */}
-          <h2 className="confirmation-title">Foglalás megerősítve</h2>  {/* A foglalás megerősítésének címe. */}
-          <div className="confirmation-details">  {/* A foglalás megerősítésének adatait tartalmazó div elem. */}
-          <h6>{conf.line1}</h6> {/* Az üzenet első sora. */}
-          <h6>{conf.line2}</h6>
-          <h6>{conf.line3}</h6>
-          </div>
-        </section>
-      </>
-    );
+const ConfirmRes = ({ conf }) => {
+  return (
+    <section className="confirmation-container">
+      <h2 className="confirmation-title">Foglalás megerősítve</h2>
+      <div className="confirmation-details">
+        <div className="confirmation-icon">✓</div>
+        <p className="confirmation-line">{conf.line1}</p>
+        <p className="confirmation-line">{conf.line2}</p>
+        <p className="confirmation-line">{conf.line3}</p>
+      </div>
+    </section>
+  );
 };
 
 ConfirmRes.propTypes = {  // A props-on keresztül kapott adatok típusának ellenőrzése a PropTypes segí
