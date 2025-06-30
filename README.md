@@ -1,70 +1,166 @@
-# Getting Started with Create React App
+# 🍽️ Mediterrán Étterem
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📋 Projekt leírása
 
-## Available Scripts
+A Mediterrán Étterem egy modern, reszponzív éttermi weboldal, amely React.js technológiával készült. Az alkalmazás egy családi tulajdonban lévő mediterrán étterem online jelenlétét biztosítja, ahol a vendégek megismerhetik az étlapot, foglalhatnak asztalt és olvashatják más vendégek véleményeit.
 
-In the project directory, you can run:
+## ✨ Főbb funkciók
 
-### `npm start`
+- **Főoldal**: Vonzó bemutató oldal az étterem ismertetésével
+- **Étlap**: Teljes menü böngészése kategóriák szerint (előételek, főételek, desszertek)
+- **Asztalfoglalás**: Online foglalási rendszer validációval
+- **Rólunk**: Az étterem történetének és nyitvatartásának bemutatása
+- **Responsive design**: Mobil és desktop eszközökön egyaránt optimalizált
+- **Vendég vélemények**: Korábbi vendégek visszajelzéseinek megjelenítése
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ Technológiai stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Frontend**: React.js (hooks használatával)
+- **Routing**: React Router DOM
+- **Styling**: CSS3 (custom CSS modulokkal)
+- **Build tool**: Create React App
+- **State management**: React useState és useEffect hooks
 
-### `npm test`
+### 🎨 CSS Jellemzők
+- **Reszponzív design**: Többféle média query (1200px, 768px)
+- **Színséma**: Sötétzöld és sárga hangsúlyokkal
+- **Animációk**: Hover effektek, átmenetek
+- **Modern CSS**: Flexbox, CSS Grid használata
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📁 Projekt struktúra
 
-### `npm run build`
+```
+src/
+├── components/         # Újrafelhasználható komponensek
+│   ├── Card.js         # Étel kártyák megjelenítése
+│   ├── Footer.js       # Weboldal lábléc
+│   ├── Hero.js         # Főoldal hero szekció
+│   ├── Navbar.js       # Navigációs menü
+│   ├── ScrollToTop.js  # Oldal tetejére görgetés
+│   ├── SocialCard.js   # Vendég vélemény kártyák
+│   ├── Special.js      # Heti akciók szekció
+│   └── NavFoot.js      # Layout wrapper
+├── pages/              # Oldal komponensek
+│   ├── Home.js         # Főoldal
+│   ├── About.js        # Rólunk oldal
+│   ├── Menu.js         # Étlap oldal
+│   ├── Reserve.js      # Foglalás oldal
+│   ├── BookingForm.js  # Foglalási űrlap
+│   └── ConfirmRes.js   # Foglalás megerősítés
+├── api/
+│   └── api.js          # Mock API funkcionalitás
+├── data.js             # Étlap adatok
+├── images/             # Statikus képfájlok
+└── App.js              # Fő alkalmazás komponens
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Telepítés és futtatás
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Előfeltételek
+- Node.js (v14 vagy újabb verzió)
+- npm vagy yarn package manager
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Telepítési lépések
 
-### `npm run eject`
+1. **Repository klónozása**
+   ```bash
+   git clone https://github.com/[felhasznalonev]/mediterran-etterem.git
+   cd mediterran-etterem
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Függőségek telepítése**
+   ```bash
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. **Fejlesztői szerver indítása**
+   ```bash
+   npm start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. **Alkalmazás megnyitása**
+   
+   Nyisd meg a böngészőt és látogasd meg: `http://localhost:3000`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Build készítése production-höz
 
-## Learn More
+```bash
+npm run build
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📱 Funkciók részletesen
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Asztalfoglalás
+- **Validáció**: Email cím, dátum, vendégszám ellenőrzése
+- **Dátum korlátozás**: Csak jövőbeli dátumok foglalhatók
+- **Időpont választás**: Dinamikusan generált időpontok
+- **Megerősítés**: Foglalás után visszaigazoló üzenet
 
-### Code Splitting
+### Étlap rendszer
+- **Kategorizálás**: Ételek típus szerint csoportosítva
+- **Képes megjelenítés**: Minden ételhez tartozó kép
+- **Részletes leírás**: Ételek összetevőinek ismertetése
+- **Árak megjelenítése**: HUF-ban megadott árak
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Responsive design
+- **Mobile-first**: Mobil eszközökre optimalizált
+- **Hamburger menü**: Mobil navigáció
+- **Flexibilis layout**: Különböző képernyőméretekhez alkalmazkodó
 
-### Analyzing the Bundle Size
+## 🎨 Stílus és design
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+A weboldal modern, mediterrán hangulatú designt alkalmaz:
+- Meleg színpaletta
+- Letisztult tipográfia
+- Interaktív hover effektek
+- Responsive kártyás elrendezés
 
-### Making a Progressive Web App
+## 📊 Adatkezelés
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Az alkalmazás statikus adatokkal működik:
+- Étlap adatok a `data.js` fájlban
+- Mock API az asztalfoglaláshoz
+- Vendég vélemények beégetett adatokkal
 
-### Advanced Configuration
+## 🔧 Fejlesztési lehetőségek
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Backend API integrálása
+- Valós adatbázis kapcsolat
+- Fizetési rendszer implementálása
+- Admin felület étlap kezeléshez
+- Többnyelvű támogatás
+- SEO optimalizálás
 
-### Deployment
+## 🤝 Közreműködés
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Ha szeretnél hozzájárulni a projekthez:
 
-### `npm run build` fails to minify
+1. Fork-old a repository-t
+2. Hozz létre egy feature branch-et (`git checkout -b feature/UjFunkció`)
+3. Commit-old a változásokat (`git commit -m 'Új funkció hozzáadása'`)
+4. Push-old a branch-et (`git push origin feature/UjFunkció`)
+5. Nyiss egy Pull Request-et
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📄 Licenc
+
+Ez a projekt MIT licenc alatt áll. Lásd a [LICENSE](LICENSE) fájlt a részletekért.
+
+## 📞 Kapcsolat
+
+- **Fejlesztő**: Geri
+- **Email**: [mediterran@gmail.com](mailto:mediterran@gmail.com)
+- **Cím**: 1052 Budapest, Galamb utca 2.
+- **Telefon**: 06 1 123 4567
+
+---
+
+**Nyitvatartás:**
+- Hétfő - Csütörtök: 9:00 - 24:00
+- Péntek - Vasárnap: 11:00 - 24:00
+
+**Asztalfoglalás:**
+- Minden nap: 17:00 - 23:00
+
+---
+
+⭐ Ha tetszik a projekt, adj neki egy csillagot!
