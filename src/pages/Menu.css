@@ -1,27 +1,118 @@
-.menu-container {   /* A menü konténerének stílusai */
-    max-width: 75rem; /* A konténer maximális szélessége 75 rem. Így 3 kártya lesz egy sorba */
-    margin: 0 auto; /* A konténer középre igazítása */
+.menu-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+}
+
+.menu-header {
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 .menu-title {
-    font-size: 2rem; /* Kétszerese az alapértelmezett méretnek */
-    color: #F4CE14;
-    text-align: center;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #F4CE14;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.menu-description {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0;
+  font-style: italic;
+}
+
+.menu-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.menu-section {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-left: 4px solid #F4CE14;
 }
 
 .menu-subtitle {
-    font-size: 1.4rem; 
-    text-align: center;
-    margin-top: 3rem;
+  font-size: clamp(1.3rem, 4vw, 1.6rem);
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #495e57;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
+.category-emoji {
+  font-size: 1.5em;
+}
 
-@media only screen and (max-width: 1200px) {
-    .menu-title {
-        font-size: 1.6rem;
-    }
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
 
-    .menu-subtitle {
-        font-size: 1.2em; 
-    }
+.empty-category {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  font-style: italic;
+}
+
+.error-message {
+  text-align: center;
+  padding: 3rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border-left: 4px solid #dc3545;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .menu-container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .menu-section {
+    padding: 1.5rem 1rem;
+  }
+  
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .menu-subtitle {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .card-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  
+  .card-price {
+    align-self: flex-end;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .menu-title {
+    font-size: 1.8rem;
+  }
+  
+  .menu-description {
+    font-size: 1rem;
+  }
 }
