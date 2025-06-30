@@ -1,14 +1,25 @@
-import Hero from "../components/Hero";  // Az Hero komponens importálása a Hero.js fájlból.
-import Special from "../components/Special";  // A Special komponens importálása a Special.js fájlból.
-import SocialCardList from "../components/SocialCardList";  // A SocialCardList komponens importálása a SocialCardList.js fájlból.
-import data from "../data";  // Az adatok importálása a data.js fájlból.
+import Hero from "../components/Hero";
+import Special from "../components/Special";
+import SocialCardList from "../components/SocialCardList";
+import data from "../data";
 import edina from "../images/profiles/edina.jpg";
 import gaspar from "../images/profiles/gaspar.jpg";
 import szilvi from "../images/profiles/szilvi.jpg";
 import viki from "../images/profiles/viki.jpg";
 
+// Konstansok kiemelése a komponens tetejére
+const FEATURED_ITEMS = [
+  "Grillezett sajtos szendvics",
+  "Citromos csirkés tészta", 
+  "Almás empanadák"
+];
 
-const Home = () => {  // A Home komponensünk az alkalmazás főoldalát jeleníti meg, amely a Hero, Special és SocialCardList komponensekből áll.
+const Home = () => {
+  // Menü adatok szűrése a kiemelt elemekhez
+  const menuData = data?.filter(item => 
+    FEATURED_ITEMS.includes(item.name)
+  ) || [];
+  
   const socialCards = [ // A vendégek véleményeit egy tömbben tároljuk, amelyeket a SocialCardList komponens segítségével jelenítünk meg.
     {
       name: "Edina",
@@ -32,20 +43,22 @@ const Home = () => {  // A Home komponensünk az alkalmazás főoldalát jelení
     }
   ];
 
-  return (  // A Home komponensünk visszatérési értéke egy JSX kifejezés, amely a Hero, Special és SocialCardList komponenseket tartalmazza.
-    <>  {/* A fragment tagok segítségével több JSX elemet is visszaadhatunk a komponensből. */}
-      <Hero />  {/* A Hero komponensünk az étterem címét, helyét, leírását és egy gombot tartalmaz, amely az asztalfoglalás oldalra navigál. */}
-      <Special data={menuData} /> {/* A Special komponensünk a menü különlegességeit jeleníti meg. */}
-      <SocialCardList data={socialCards} /> {/* A SocialCardList komponensünk a vendégek véleményeit jeleníti meg. */}
-    </> // A fragment tagok segítségével több JSX elemet is visszaadhatunk a komponensből.
+  // Hibakezelés - ha nincs menü adat
+  if (!data || data.length === 0) {
+    return (
+      <div className="error-container">
+        <p>Hiba történt az adatok betöltése során. Kérjük, próbálja újra később.</p>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <Hero />
+      <Special data={menuData} />
+      <SocialCardList data={socialCards} />
+    </>
   );
 };
-
-// Az akciók szűrése az új adatstruktúrából
-const menuData = data.filter(item => [  // Az akciókat egy tömbben tároljuk, amelyeket a Special komponens segítségével jelenítünk meg.
-  "Grillezett sajtos szendvics",  // Az akciók nevei.
-  "Citromos csirkés tészta",
-  "Almás empanadák"
-].includes(item.name)); // Az akciók neveinek összehasonlítása az adatok neveivel.
 
 export default Home;
