@@ -8,6 +8,11 @@
     border-radius: 15px; /*Lekerekíti a hero szekció sarkait.*/
 }
 
+.hero-container p {
+    color: white;
+    text-align: center;
+}
+
 .hero-title {
     font-weight: normal;    /*Normál betűtípust alkalmaz.*/
     color: #F4CE14; 
@@ -22,11 +27,6 @@
     text-align: center;
 }
 
-p {
-    color: white;
-    text-align: center;
-}
-
 .reserve-btn {
     border: none;           /*Eltávolítja a keretet.*/
     border-radius: 15px;    /*Lekerekíti a gomb sarkait.*/
@@ -35,6 +35,7 @@ p {
     display: block;         /*Blokkszintű elemmé teszi a gombot.*/
     cursor: pointer;        /*Megváltoztatja a kurzort pointerre hover esetén.*/
     padding: 5px 20px;      /*Belső margókat állít be.*/
+    transition: all 0.3s ease; /* Smooth átmenet */
 }
 /*A margin-left: auto; és margin-right: auto; beállításokkal a gomb középre kerül a szülőelemén belül. 
 A display: block; biztosítja, hogy a gomb blokkszintű elemként viselkedjen, így a margók megfelelően működnek.*/
@@ -47,20 +48,30 @@ A display: block; biztosítja, hogy a gomb blokkszintű elemként viselkedjen, �
 .reserve-btn:hover {    /*A gombra mutatva a háttérszín sárgára változik.*/
     color: white;     /*Fehérre változtatja a szöveg színét hover esetén*/
 }
-  
 
 
 /* A következő media query a 1200px széles képernyőkön alkalmazza a stílusokat. */
 @media (max-width: 1200px) {
- .hero-title {
+
+    .hero-container {
+        width: 90%;
+        height: 16rem;
+    }
+    .hero-title {
         font-size: 1.5em;
- }
+    }
 
- .hero-subtitle {
+    .hero-subtitle {
         font-size: 1.2em;
- }
+    }
+}
 
- p {
-        font-size: 0.9em;
- }
+@media (max-width: 768px) {
+    .hero-container {
+        width: 90%;
+        height: 16rem;
+    }
+    .reserve-btn {
+        padding: 8px 24px;
+    }
 }

@@ -43,10 +43,9 @@
 
 .product-details p {
   color: white;
-  /*text-align: center;*/
+  text-align: center;
   font-size: 0.9rem;
 }
-
 
 /* Media query-k */
 @media only screen and (max-width: 1200px) {

@@ -26,6 +26,7 @@
   text-decoration: none;  /* Szöveg aláhúzás eltávolítása */
   font-size: 1.5rem;
   padding: 0.1rem;
+  transition: color 0.3s ease;
 }
 
 address {
@@ -55,6 +56,11 @@ address {
   width: 100%;  /* Szélesség */
 }
 
+.footer-copyright p {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin: 0;
+}
 
 /* Média lekérdezés 1200px-nél kisebb képernyőkhöz */
 @media (max-width: 1200px) {

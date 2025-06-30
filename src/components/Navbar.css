@@ -37,6 +37,7 @@
   display: flex; /* Rugalmas elrendezés */ /* nem egymás alatt lesz*/
   list-style: none; /* Lista stílus eltávolítása */
   margin-top: 1.7rem; /* Felső margó */
+  z-index: 1000; /* Magas z-index, hogy a navigációs sáv mindig a tetején legyen */
 }
 
 .nav-links li {
@@ -47,6 +48,7 @@
   color: black; /* Szöveg színe */
   text-decoration: none; /* Szöveg aláhúzás eltávolítása */
   font-size: 1.1rem; /* az alapértelmezett betűméret 1.1-szerese lesz */
+  transition: color 0.3s ease; /* Színátmenet */
 }
 
 .nav-links a.active {
@@ -56,8 +58,6 @@
 .nav-links a:hover {
   color: #F4CE14; /* Szín változtatása egér fölé húzáskor */
 }
-
-
 
 
 /* Média lekérdezés 1200px-nél kisebb képernyőkhöz */

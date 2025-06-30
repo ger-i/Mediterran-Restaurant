@@ -9,7 +9,7 @@ const Hero = () => {  // A Hero komponensünk egy egyszerű szekció, amely egy 
         <h2 className="hero-subtitle">Budapest</h2> {/* Az étterem helyének megjelenítése. */}
         <p>Családi tulajdonban lévő mediterrán étterem vagyunk, amely a hagyományos receptekre összpontosít, modern csavarral tálalva.</p>
         <Link className="hero-link" to="/reserve">  {/* A Link komponens segítségével a megfelelő oldalra navigálunk. */}
-          <button className="reserve-btn">Asztalfoglalás</button> {/* A gomb szövege és stílusa. */}
+          <button className="reserve-btn" aria-label="Navigálás az asztalfoglalás oldalra">Asztalfoglalás</button> {/* A gomb, amely az asztalfoglalás oldalra navigál. Az aria-label attribútum segít a képernyőolvasóknak megérteni a gomb funkcióját. */}
         </Link>
       </div>
     </section>

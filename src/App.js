@@ -1,4 +1,3 @@
-import './App.css';
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
@@ -7,6 +6,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Menu from "./pages/Menu";
 import Reserve from "./pages/Reserve";
+import './App.css';
 
 function App() {  // Az App komponensünk a fő komponensünk, amely a többi komponenst fogja tartalmazni.
   return (  // A return metódus visszaadja a komponensünk által megjelenített JSX kódot.
