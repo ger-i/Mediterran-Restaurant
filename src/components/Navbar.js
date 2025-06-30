@@ -16,6 +16,11 @@ const Nav = () => { // A Nav komponensünk egy navigációs sávot tartalmaz, am
     setMenuOpen(!menuOpen);
   };
 
+    // Új függvény: menü bezárása amikor egy menüpontra kattintunk
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <nav className={`navbar ${menuOpen ? 'open' : ''}`}> {/* A menü nyitva vagy zárva van-e, azt a menuOpen állapot alapján döntjük el. Ha a menuOpen true, akkor a 'open' class-t adja hozzá a navbarhoz, ami megnyitja a menüt. */}
       <NavLink to="/" className="logo"> {/* A NavLink komponens segítségével a logo képre kattintva a főoldalra navigálunk. */}
@@ -32,16 +37,16 @@ const Nav = () => { // A Nav komponensünk egy navigációs sávot tartalmaz, am
       {/* nav items */}
       <ul className={`nav-links ${menuOpen ? 'visible' : ''}`}> {/* A menüpontokra kattintva a megfelelő oldalra navigálunk. A menüpontok aktív oldalának megjelenítéséhez a NavLink komponens activeclassname attribútumát használjuk. Az activeclassname attribútummal az 'active' class-t adhatjuk hozzá az aktív linkhez. (Aktív oldal zöld színnel). A <ul> elem akkor válik láthatóvá (visible osztály), ha a menü nyitva van. */}
         <li>
-          <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>FŐOLDAL</NavLink>  {/* A NavLink komponens segítségével a főoldalra navigálunk. */}
+          <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}onClick={closeMenu}>FŐOLDAL</NavLink>  {/* A NavLink komponens segítségével a főoldalra navigálunk. */}
         </li>
         <li>
-          <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : '')}>RÓLUNK</NavLink>
+          <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : '')}onClick={closeMenu}>RÓLUNK</NavLink>
         </li>
         <li>
-          <NavLink to="/menu" className={({ isActive }) => (isActive ? 'active' : '')}>ÉTLAP</NavLink>
+          <NavLink to="/menu" className={({ isActive }) => (isActive ? 'active' : '')}onClick={closeMenu}>ÉTLAP</NavLink>
         </li>
         <li>
-          <NavLink to="/reserve" className={({ isActive }) => (isActive ? 'active' : '')}>ASZTALFOGLALÁS</NavLink>
+          <NavLink to="/reserve" className={({ isActive }) => (isActive ? 'active' : '')}onClick={closeMenu}>ASZTALFOGLALÁS</NavLink>
         </li>
       </ul>
     </nav>
