@@ -17,7 +17,7 @@ const Menu = () => {
       acc[category.key] = data.filter(item => item.type === category.key);
       return acc;
     }, {});
-  }, [data]);
+  }, []);
 
   // Menü szekció komponens
   const MenuSection = ({ category, items }) => {
