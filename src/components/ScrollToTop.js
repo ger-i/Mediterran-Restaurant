@@ -1,17 +1,21 @@
-// Ez a komponens az oldal tetejére görget, amikor az útvonal változik
-// A komponens nem renderel semmit, csak a görgetést végzi el
+import { useEffect } from "react";  
+import { useLocation } from "react-router-dom"; 
 
-import { useEffect } from "react";  // Az useEffect hook importálása
-import { useLocation } from "react-router-dom"; // Az useLocation hook importálása
+/**
+ * ScrollToTop komponens - Automatikus görgetés az oldal tetejére
+ * Minden route váltásnál automatikusan az oldal tetejére ugrik
+ * Javítja a felhasználói élményt egyoldalas alkalmazásokban (SPA)
+ */
 
-const ScrollToTop = () => {
-  const { pathname } = useLocation(); // Az aktuális útvonal lekérése
-
-  useEffect(() => {
-    window.scrollTo(0, 0); // Az oldal tetejére görget
-  }, [pathname]); // A pathname változásakor lefut
-
-  return null; // Nem renderel semmit
+const ScrollToTop = () => { // Aktuális útvonal lekérése a React Router-ből
+  const { pathname } = useLocation(); 
+  
+  // useEffect hook - lefut minden pathname változásnál
+  useEffect(() => { // Böngésző ablak görgetése az oldal tetejére (x: 0, y: 0 koordinátákra)
+    window.scrollTo(0, 0); 
+  }, [pathname]); // Dependency array: csak pathname változáskor fut le
+  
+  return null; // Nem renderel semmit - csak side effect-et hajt végre
 };
 
 export default ScrollToTop;
