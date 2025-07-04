@@ -1,90 +1,111 @@
-// Ez a komponens a foglalási űrlapot tartalmazza, amelyet a felhasználó kitöltve tud asztalt foglalni.
-// A komponens a következő állapotokat kezeli:  name, date, time, guests, occasion, emailError  (email validálás) 
-// Az állapotokat a useState hook segítségével hoztuk létre. 
-// Az email validálásához a validateEmail függvényt használtuk, amely egy reguláris kifejezést használ az email cím ellenőrzésére.
-// A dátum mezőben a mai dátumhoz képest a legkorábbi foglalható dátumot állítottuk be (holnaptól).
-// A vendégek számának ellenőrzésére a handleGuestsChange függvényt használtuk, amely 1 és 20 közötti számokat engedélyez.
-// A form elküldésekor a handleSubmit függvény fut le, amely ellenőrzi, hogy minden mező ki van-e töltve és helyesen van-e kitöltve.
-// Ha valamelyik mező nincs kitöltve, akkor egy alert üzenet jelenik meg.
-// Ha minden mező helyesen van kitöltve, akkor a setMsg függvény segítségével beállítjuk a sikeres foglalás üzenetét, és a setConfirm függvény segítségével megjelenítjük a megerősítő üzenetet.
-// A formon belül a mezők változásait a handleInputChange, handleEmailChange, handleDateChange, handleGuestsChange függvények kezelik.
-// A formon belül a mezők értékeit a useState hook segítségével állítjuk be.
-
-
 import { useState } from "react";
 import "./BookingForm.css";
 
-// Email validáló függvény
+/**
+ * Email validáló függvény */
 const validateEmail = (email) => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.toLowerCase());
 };
 
-// Mai dátumhoz képest a legkorábbi foglalható dátum (holnaptól)
-const today = new Date();
-const minDate = new Date(today.getTime() + 24 * 60 * 60 * 1000).toISOString().split("T")[0];
-
-const BookingForm = ({ setConfirm, setMsg, availableTimes = ["17:00", "18:00", "19:00", "20:00", "21:00"] }) => {
-  // Állapotok
+// A foglalási űrlap komponens, amely lehetővé teszi az asztalfoglalást
+const today = new Date(); // Mai dátum lekérése
+// A legkorábbi foglalható dátum beállítása (holnap)
+const minDate = new Date(today.getTime() + 24 * 60 * 60 * 1000).toISOString().split("T")[0];  // ISO formátumra alakítva (YYYY-MM-DD)
+const BookingForm = ({ setConfirm, setMsg, availableTimes = ["17:00", "18:00", "19:00", "20:00", "21:00"] }) => {   // Foglalási időpontok alapértelmezett értéke
+  
+  // ===== ÁLLAPOTOK INICIALIZÁLÁSA =====
+  
+  // Főbb form adatok (név, email) egyben kezelése
   const [formData, setFormData] = useState({
     lastName: "",    // Vezetéknév
     firstName: "",   // Keresztnév
-    email: ""
+    email: ""        // Email cím
   });
-  const [date, setDate] = useState(minDate);
-  const [time, setTime] = useState("");
-  const [guests, setGuests] = useState(1);
-  const [occasion, setOccasion] = useState("");
+  
+  // Egyéb form mezők külön állapotokban
+  const [date, setDate] = useState(minDate);  // Foglalás dátuma (alapértelmezett: holnap)
+  const [time, setTime] = useState("");       // Foglalás időpontja
+  const [guests, setGuests] = useState(1);    // Vendégek száma
+  const [occasion, setOccasion] = useState("");  // Alkalom típusa
+  
+  // Email validáció hibájának jelzése
   const [emailError, setEmailError] = useState(false);
-
-  // Általános input változások kezelése
+  
+  // ===== EVENT HANDLER FÜGGVÉNYEK =====
+  
+  /**
+   * Általános input mezők változásainak kezelése*/
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     
+    // Vendégek számának speciális kezelése (1-20 között)
     if (name === "guests") {
       const guestsCount = Number(value);
       if (guestsCount >= 1 && guestsCount <= 20) {
         setGuests(guestsCount);
       }
-    } else if (name === "email") {
+    } 
+    // Email mező speciális kezelése (validációval)
+    else if (name === "email") {
       setFormData(prev => ({ ...prev, [name]: value }));
+      // Valós időben email validáció
       setEmailError(!validateEmail(value));
-    } else {
+    } 
+    // Egyéb mezők általános kezelése
+    else {
       setFormData(prev => ({ ...prev, [name]: value }));
     }
   };
-
-  // Dátum változás kezelése
+  
+  /**
+   * Dátum változás kezelése
+   * Biztosítja, hogy csak jövőbeli dátumot lehessen választani
+   */
   const handleDateChange = (e) => {
     const selectedDate = e.target.value;
+    // Csak a minimum dátum utáni dátumokat engedélyezi
     if (selectedDate >= minDate) {
       setDate(selectedDate);
     }
   };
-
-  // Form elküldése
+  
+  /**
+   * Form elküldésének kezelése
+   */
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault();  // Alapértelmezett form submit megakadályozása
     
-    // Validációk
+    // ===== VALIDÁCIÓK =====
+    // Ellenőrzi, hogy minden kötelező mező ki van-e töltve és helyes-e
     if (!formData.lastName || !formData.firstName || !validateEmail(formData.email) || !date || !time || !guests || !occasion) {
       alert("Kérjük, töltsön ki minden mezőt helyesen!");
       return;
     }
-
-    // Sikeres foglalás üzenet
+    
+    // ===== SIKERES FOGLALÁS KEZELÉSE =====
+    // Személyre szabott megerősítő üzenet összeállítása
     setMsg({
       line1: `Kedves ${formData.lastName} ${formData.firstName}!`,
       line2: `Az ön asztalát ${guests} személyre lefoglaltuk a következő időpontra: ${date} ${time}.`,
       line3: `Hamarosan találkozunk a(z) ${occasion} eseményen!`,
     });
+    
+    // Megerősítő oldal megjelenítése
     setConfirm(true);
   };
-
+  
+  // ===== KOMPONENS RENDERELÉS =====
   return (
     <div className="booking-form-container">
+      {/* Űrlap címe */}
       <h2 className="booking-form-title">Asztalfoglalás</h2>
+      
+      {/* Főbb űrlap konténer */}
       <div className="form-layout" onSubmit={handleSubmit}>
-        {/* Vezetéknév */}
+        
+        {/* ===== SZEMÉLYES ADATOK SZEKCIÓ ===== */}
+        
+        {/* Vezetéknév mező */}
         <div className="input-container">
           <label htmlFor="lastName" className="form-label">
             Vezetéknév
@@ -100,8 +121,8 @@ const BookingForm = ({ setConfirm, setMsg, availableTimes = ["17:00", "18:00", "
             required
           />
         </div>
-
-        {/* Keresztnév */}
+        
+        {/* Keresztnév mező */}
         <div className="input-container">
           <label htmlFor="firstName" className="form-label">
             Keresztnév
@@ -117,8 +138,8 @@ const BookingForm = ({ setConfirm, setMsg, availableTimes = ["17:00", "18:00", "
             required
           />
         </div>
-
-        {/* Email */}
+        
+        {/* Email mező validációval */}
         <div className="input-container">
           <label htmlFor="email" className="form-label">
             Email
@@ -133,10 +154,13 @@ const BookingForm = ({ setConfirm, setMsg, availableTimes = ["17:00", "18:00", "
             onChange={handleInputChange}
             required
           />
+          {/* Email hiba üzenet megjelenítése */}
           {emailError && <p className="error-message">Kérjük, adjon meg egy érvényes email címet.</p>}
         </div>
-
-        {/* Dátum */}
+        
+        {/* ===== FOGLALÁSI ADATOK SZEKCIÓ ===== */}
+        
+        {/* Dátum választó - csak jövőbeli dátumokkal */}
         <div className="wide-input-container">
           <label htmlFor="date" className="form-label">
             Dátum
@@ -147,12 +171,12 @@ const BookingForm = ({ setConfirm, setMsg, availableTimes = ["17:00", "18:00", "
             className="form-control"
             value={date}
             onChange={handleDateChange}
-            min={minDate}
+            min={minDate}  // Minimum dátum beállítása (holnap)
             required
           />
         </div>
-
-        {/* Idő */}
+        
+        {/* Időpont választó - elérhető időpontokból */}
         <div className="wide-input-container">
           <label htmlFor="time" className="form-label">
             Idő
@@ -165,6 +189,7 @@ const BookingForm = ({ setConfirm, setMsg, availableTimes = ["17:00", "18:00", "
             required
           >
             <option value="">Válassza ki az időt</option>
+            {/* Dinamikus időpont opciók az availableTimes prop alapján */}
             {availableTimes.map((timeSlot, i) => (
               <option key={i} value={timeSlot}>
                 {timeSlot}
@@ -172,8 +197,8 @@ const BookingForm = ({ setConfirm, setMsg, availableTimes = ["17:00", "18:00", "
             ))}
           </select>
         </div>
-
-        {/* Vendégek száma */}
+        
+        {/* Vendégek száma - 1-20 közötti érték */}
         <div className="wide-input-container">
           <label htmlFor="guests" className="form-label">
             Vendégek száma
@@ -185,13 +210,13 @@ const BookingForm = ({ setConfirm, setMsg, availableTimes = ["17:00", "18:00", "
             value={guests}
             onChange={handleInputChange}
             name="guests"
-            min={1}
-            max={20}
+            min={1}   // Minimum 1 vendég
+            max={20}  // Maximum 20 vendég
             required
           />
         </div>
-
-        {/* Alkalmak */}
+        
+        {/* Alkalom választó - előre definiált opciókkal */}
         <div className="wide-input-container">
           <label htmlFor="occasion" className="form-label">
             Alkalom
@@ -211,7 +236,9 @@ const BookingForm = ({ setConfirm, setMsg, availableTimes = ["17:00", "18:00", "
             <option value="egyéb">Egyéb</option>
           </select>
         </div>
-
+        
+        {/* ===== FORM ELKÜLDÉS ===== */}
+        
         {/* Küldés gomb */}
         <div className="submit-container">
           <button type="submit" className="submit-button" onClick={handleSubmit}>
