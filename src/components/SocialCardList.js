@@ -1,13 +1,24 @@
 import SocialCard from './SocialCard';
 import './SocialCard.css';
 
-const SocialCardList = ({ data }) => {  // A SocialCardList komponensünk egy listát jelenít meg a SocialCard komponens
+/**
+ * SocialCardList komponens - Testimonial/vélemény lista
+ * Több vendég véleményét jeleníti meg SocialCard komponensek segítségével
+ * Container komponens, amely kezeli a testimonials szekció teljes megjelenítését
+ */
+
+const SocialCardList = ({ data }) => {  
   return (
-    <div className="social-card-container"> {/* A kártyák konténere. */}
-      <h2 className="testimonial-heading">Vendégeink mondták!</h2>  {/* A kártyák fejléce. */}
-      <div className="social-card-list">  {/* A kártyák listája. */}
-        {data.map((card) => ( // Az adatokat egy tömbben tároljuk, amelyeket a SocialCard komponens segítségével jelenítünk meg.
-          <SocialCard key={card.name} {...card} />  // A SocialCard komponens segítségével jelenítjük meg a kártyákat.
+    <div className="social-card-container"> 
+      <h2 className="testimonial-heading">Vendégeink mondták!</h2>  
+      
+      <div className="social-card-list">  
+        {/* Dinamikus renderelés - végigiterálás a testimonial adatokon */}
+        {data.map((card) => ( 
+          <SocialCard 
+            key={card.name}    // React key - név alapján (egyedi azonosító)
+            {...card}          // Spread operator - összes card property átadása
+          />  
         ))}
       </div>  
     </div>
