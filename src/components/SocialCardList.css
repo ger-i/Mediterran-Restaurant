@@ -1,0 +1,23 @@
+.social-card-container {
+    /* A konténer stílusa */
+    text-align: center;
+    background: #EDEFEE;
+}
+
+.testimonial-heading {
+    /* A cím stílusa */
+    padding: 16px 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.social-card-list {
+    /* A kártyák elrendezése */
+    display: flex;
+    /* Flexbox elrendezés. Egymás mellé kerül nem egymás alá. */
+    flex-wrap: wrap;
+    /* Ha kifut a sorból, akkor sortörés. Így ha kicsinyítjük a képernyőt egymás alá rakja őket.*/
+    justify-content: center;
+    /* Középre igazítás */
+    gap: 10px;
+}
