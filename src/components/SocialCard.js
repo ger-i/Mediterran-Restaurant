@@ -24,4 +24,8 @@ const SocialCard = ({ name, description, image }) => {
   );
 };
 
+<<<<<<< HEAD
 export default SocialCard;
+=======
+export default SocialCard;
+>>>>>>> 6930feade993336bd202822d9b3f81bf81e3555e

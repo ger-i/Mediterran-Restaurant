@@ -91,4 +91,8 @@ const Nav = () => {
   );
 };
 
+<<<<<<< HEAD
 export default Nav;
+=======
+export default Nav;
+>>>>>>> 6930feade993336bd202822d9b3f81bf81e3555e

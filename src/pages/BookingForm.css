@@ -112,6 +112,13 @@
   .wide-input-container {
     flex: 0 0 100%;
     min-width: unset;
+<<<<<<< HEAD
+  }
+
+  .booking-form-title {
+    font-size: 1.5rem;
+=======
+>>>>>>> 6930feade993336bd202822d9b3f81bf81e3555e
   }
 
   .booking-form-title {

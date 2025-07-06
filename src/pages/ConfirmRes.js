@@ -50,4 +50,8 @@ ConfirmRes.propTypes = {
   }).isRequired // A teljes conf objektum kötelező
 };
 
+<<<<<<< HEAD
 export default ConfirmRes;
+=======
+export default ConfirmRes;
+>>>>>>> 6930feade993336bd202822d9b3f81bf81e3555e

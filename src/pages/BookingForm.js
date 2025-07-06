@@ -1,16 +1,3 @@
-// Ez a komponens a foglalási űrlapot tartalmazza, amelyet a felhasználó kitöltve tud asztalt foglalni.
-// A komponens a következő állapotokat kezeli:  name, date, time, guests, occasion, emailError  (email validálás) 
-// Az állapotokat a useState hook segítségével hoztuk létre. 
-// Az email validálásához a validateEmail függvényt használtuk, amely egy reguláris kifejezést használ az email cím ellenőrzésére.
-// A dátum mezőben a mai dátumhoz képest a legkorábbi foglalható dátumot állítottuk be (holnaptól).
-// A vendégek számának ellenőrzésére a handleGuestsChange függvényt használtuk, amely 1 és 20 közötti számokat engedélyez.
-// A form elküldésekor a handleSubmit függvény fut le, amely ellenőrzi, hogy minden mező ki van-e töltve és helyesen van-e kitöltve.
-// Ha valamelyik mező nincs kitöltve, akkor egy alert üzenet jelenik meg.
-// Ha minden mező helyesen van kitöltve, akkor a setMsg függvény segítségével beállítjuk a sikeres foglalás üzenetét, és a setConfirm függvény segítségével megjelenítjük a megerősítő üzenetet.
-// A formon belül a mezők változásait a handleInputChange, handleEmailChange, handleDateChange, handleGuestsChange függvények kezelik.
-// A formon belül a mezők értékeit a useState hook segítségével állítjuk be.
-
-
 import { useState } from "react";
 import "./BookingForm.css";
 

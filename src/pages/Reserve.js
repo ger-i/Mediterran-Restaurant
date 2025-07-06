@@ -99,4 +99,8 @@ const Reserve = () => {
   );
 };
 
+<<<<<<< HEAD
 export default Reserve;
+=======
+export default Reserve;
+>>>>>>> 6930feade993336bd202822d9b3f81bf81e3555e
