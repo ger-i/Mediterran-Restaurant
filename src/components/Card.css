@@ -31,7 +31,6 @@
   font-size: 1.5rem;
   display: flex;
   justify-content: center;
-  /*align-items: center;*/
 }
 
 .product-details h1 {
@@ -47,21 +46,23 @@
   font-size: 0.9rem;
 }
 
-/* Media query-k */
-@media only screen and (max-width: 1200px) {
-  .product-details p {
-    font-size: 0.8rem;
-  }
-
-  .price {
-    font-size: 1.2rem;
-  }
-}
-
+/* Media query */
 @media only screen and (max-width: 768px) {
   .card {
     margin: 10px;
     width: 295px;
     height: 375px; 
+  }
+
+  .price {
+    font-size: 1.4rem;
+  }
+
+  .product-details p {
+    font-size: 0.8rem;
+  }
+
+  .product-details h1 {
+  font-size: 1rem;
   }
 }
