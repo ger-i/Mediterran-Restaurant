@@ -1,51 +1,94 @@
-// Ez a komponens a navigációs sávot tartalmazza, amely a főoldalra, rólunk oldalra, étlapra és asztalfoglalás oldalra navigál. A menü mobil nézetben egy menü ikont tartalmaz, amelyre kattintva megjelenik a menü. A menüpontokra kattintva a megfelelő oldalra navigálunk.
-// A menüpontok aktív oldalának megjelenítéséhez a NavLink komponens activeclassname attribútumát használjuk. Az activeclassname attribútummal az 'active' class-t adhatjuk hozzá az aktív linkhez. (Aktív oldal zöld színnel)
-// A menü nyitva vagy zárva van-e, azt a menuOpen állapot alapján döntjük el. Ha a menuOpen true, akkor a 'open' class-t adja hozzá a navbarhoz, ami megnyitja a menüt.
-// A toggleMenu egy függvény, ami megváltoztatja a menuOpen állapotát. Ha a menü nyitva van, bezárja, ha zárva van, kinyitja.
+// Navbar.js - Reszponzív navigációs sáv komponens
+// Ez a komponens a weboldal navigációs sávját valósítja meg, amely mobilon hamburger menüvel, asztali nézetben pedig hagyományos navigációval jelenik meg.       
 
 
-import React, { useState } from 'react';  // A useState Hook segítségével állapotot hozhatunk létre a komponensünkben.
-import { NavLink } from 'react-router-dom'; // A NavLink komponens segítségével a megfelelő oldalra navigálunk. NavLink: Olyan navigációs eszköz, amely segít kiemelni, hogy melyik link az aktív, ami hasznos lehet menükben vagy navigációs elemekben, ahol vizuális visszajelzés szükséges az aktuális helyről.
+import React, { useState } from 'react';  
+import { NavLink } from 'react-router-dom';
 import Logo from '../images/logos/logo_1.png';
 import './Navbar.css';
 
-const Nav = () => { // A Nav komponensünk egy navigációs sávot tartalmaz, amely a főoldalra, rólunk oldalra, étlapra és asztalfoglalás oldalra navigál.
-  const [menuOpen, setMenuOpen] = useState(false); // State Hook: useState hook segítségével egy menuOpen nevű állapotot kezel, amely kezdetben false értéket vesz fel. Ez azt jelzi, hogy a menü nyitva van-e vagy sem.
-
-  const toggleMenu = () => {  // A toggleMenu egy függvény, ami megváltoztatja a menuOpen állapotát. Ha a menü nyitva van, bezárja, ha zárva van, kinyitja.
+/**
+ * Nav komponens - Reszponzív navigációs sáv
+ * Mobilon hamburger menüvel, deszktopon hagyományos navigációval
+ */
+const Nav = () => { 
+  // Állapot a mobil menü megnyitásához/bezárásához
+  const [menuOpen, setMenuOpen] = useState(false); 
+  
+  /**
+   * Mobil menü állapotának váltása (nyitva/zárva)
+   */
+  const toggleMenu = () => {  
     setMenuOpen(!menuOpen);
+  };
+    
+  /**
+   * Mobil menü bezárása (navigálás után)
+   */
+  const closeMenu = () => {
+    setMenuOpen(false);
   };
 
   return (
-    <nav className={`navbar ${menuOpen ? 'open' : ''}`}> {/* A menü nyitva vagy zárva van-e, azt a menuOpen állapot alapján döntjük el. Ha a menuOpen true, akkor a 'open' class-t adja hozzá a navbarhoz, ami megnyitja a menüt. */}
-      <NavLink to="/" className="logo"> {/* A NavLink komponens segítségével a logo képre kattintva a főoldalra navigálunk. */}
+    // Fő navigációs elem - CSS osztály dinamikusan változik a menü állapota szerint
+    <nav className={`navbar ${menuOpen ? 'open' : ''}`}>
+      {/* Logo - főoldalra navigál */}
+      <NavLink to="/" className="logo">
         <img src={Logo} alt="logo" />
       </NavLink>
-
-      {/* mobile navbar */}
-      <div className="menu-icon" onClick={toggleMenu}>  {/* Eseménykezelő: onClick={toggleMenu} azt jelenti, hogy amikor erre a div-re kattintanak, meghívja a toggleMenu függvényt. Nyit vagy zár. */}
-        <div className="bar"></div> {/* A menü ikon megjelenítése. */}
+     
+      {/* Hamburger menü ikon (csak mobilon látható) */}
+      <div className="menu-icon" onClick={toggleMenu}>  
+        <div className="bar"></div> 
         <div className="bar"></div>
         <div className="bar"></div>
       </div>
-
-      {/* nav items */}
-      <ul className={`nav-links ${menuOpen ? 'visible' : ''}`}> {/* A menüpontokra kattintva a megfelelő oldalra navigálunk. A menüpontok aktív oldalának megjelenítéséhez a NavLink komponens activeclassname attribútumát használjuk. Az activeclassname attribútummal az 'active' class-t adhatjuk hozzá az aktív linkhez. (Aktív oldal zöld színnel). A <ul> elem akkor válik láthatóvá (visible osztály), ha a menü nyitva van. */}
+     
+      {/* Navigációs linkek listája - reszponzív megjelenítés */}
+      <ul className={`nav-links ${menuOpen ? 'visible' : ''}`}> 
+        {/* Főoldal link */}
         <li>
-          <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>FŐOLDAL</NavLink>  {/* A NavLink komponens segítségével a főoldalra navigálunk. */}
+          <NavLink 
+            to="/" 
+            className={({ isActive }) => (isActive ? 'active' : '')}
+            onClick={closeMenu}
+          >
+            FŐOLDAL
+          </NavLink>  
         </li>
+        {/* Rólunk oldal link */}
         <li>
-          <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : '')}>RÓLUNK</NavLink>
+          <NavLink 
+            to="/about" 
+            className={({ isActive }) => (isActive ? 'active' : '')}
+            onClick={closeMenu}
+          >
+            RÓLUNK
+          </NavLink>
         </li>
+        {/* Étlap oldal link */}
         <li>
-          <NavLink to="/menu" className={({ isActive }) => (isActive ? 'active' : '')}>ÉTLAP</NavLink>
+          <NavLink 
+            to="/menu" 
+            className={({ isActive }) => (isActive ? 'active' : '')}
+            onClick={closeMenu}
+          >
+            ÉTLAP
+          </NavLink>
         </li>
+        {/* Asztalfoglalás oldal link */}
         <li>
-          <NavLink to="/reserve" className={({ isActive }) => (isActive ? 'active' : '')}>ASZTALFOGLALÁS</NavLink>
+          <NavLink 
+            to="/reserve" 
+            className={({ isActive }) => (isActive ? 'active' : '')}
+            onClick={closeMenu}
+          >
+            ASZTALFOGLALÁS
+          </NavLink>
         </li>
       </ul>
     </nav>
   );
 };
 
-export default Nav; 
+export default Nav;

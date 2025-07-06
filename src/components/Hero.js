@@ -1,15 +1,27 @@
-import { Link } from "react-router-dom";  // Az oldalak közötti navigációhoz a Link komponenst használjuk.
+import { Link } from "react-router-dom";  
 import "./Hero.css";
 
-const Hero = () => {  // A Hero komponensünk egy egyszerű szekció, amely egy címet, alcímet és egy rövid leírást tartalmaz az étteremről. Ezen kívül egy gomb is található, amely az asztalfoglalás oldalra navigál.
+/**
+ * Hero komponens - Főoldal hero szekciója
+ * Az oldal tetején megjelenő látványos bevezető szekció
+ * Tartalmazza a főcímet, alcímet, leírást és call-to-action gombot
+ */
+
+const Hero = () => {  
   return (
-    <section className="hero-container">  {/* A hero szekció egyedi azonosítóval rendelkezik, amely segítségével a CSS-ben könnyen elérhetjük. */}
+    // Hero szekció container - általában teljes képernyős vagy nagy területű
+    <section className="hero-container">  
       <div> 
-        <h1 className="hero-title">Mediterrán Étterem</h1>  {/* Az étterem címének megjelenítése. */}
-        <h2 className="hero-subtitle">Budapest</h2> {/* Az étterem helyének megjelenítése. */}
+        <h1 className="hero-title">Mediterrán Étterem</h1>  
+        <h2 className="hero-subtitle">Budapest</h2> 
         <p>Családi tulajdonban lévő mediterrán étterem vagyunk, amely a hagyományos receptekre összpontosít, modern csavarral tálalva.</p>
-        <Link className="hero-link" to="/reserve">  {/* A Link komponens segítségével a megfelelő oldalra navigálunk. */}
-          <button className="reserve-btn" aria-label="Navigálás az asztalfoglalás oldalra">Asztalfoglalás</button> {/* A gomb, amely az asztalfoglalás oldalra navigál. Az aria-label attribútum segít a képernyőolvasóknak megérteni a gomb funkcióját. */}
+        <Link className="hero-link" to="/reserve">  {/* Call-to-action (CTA) link - asztalfoglalásra irányít */}
+          <button 
+            className="reserve-btn" 
+            aria-label="Navigálás az asztalfoglalás oldalra"
+          >
+            Asztalfoglalás
+          </button> 
         </Link>
       </div>
     </section>

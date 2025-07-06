@@ -60,6 +60,7 @@ address {
   color: #ccc;
   font-size: 0.9rem;
   margin: 0;
+  text-align: center;
 }
 
 /* Média lekérdezés 1200px-nél kisebb képernyőkhöz */
