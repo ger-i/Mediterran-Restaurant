@@ -1,16 +1,11 @@
 .hero-container {
     margin: 0 auto;     /*Középre igazítja a hero szekciót vízszintesen.*/
     width: 65%;         /* A szélességet a szülő konténer 65%-ára állítja (csökkenti).*/
-    height: 18.7rem;      /*Fix magasságot állít be.*/
+    height: 18rem;      /*Fix magasságot állít be.*/
     background: linear-gradient(rgba(0, 0, 0, 0.455), rgba(0, 0, 0, 0.455)), url("../images/specials/hero2.jpg") no-repeat center / cover;
     /* Színátmenetet alkalmaz a háttérképre, amely középre van igazítva és lefedi az egész területet.*/
     overflow: hidden;    /*Biztosítja, hogy a túlcsorduló tartalom rejtve maradjon.*/
     border-radius: 15px; /*Lekerekíti a hero szekció sarkait.*/
-}
-
-.hero-container p {
-    color: white;
-    text-align: center;
 }
 
 .hero-title {
@@ -24,6 +19,11 @@
     font-weight: normal;    /*Normál betűtípust alkalmaz.*/
     color: #fff; 
     font-size: 1.5rem;  
+    text-align: center;
+}
+
+.hero-container p {
+    color: white;
     text-align: center;
 }
 
@@ -50,28 +50,18 @@ A display: block; biztosítja, hogy a gomb blokkszintű elemként viselkedjen, �
 }
 
 
-/* A következő media query a 1200px széles képernyőkön alkalmazza a stílusokat. */
-@media (max-width: 1200px) {
-
+/*Kisebb képernyők esetén alkalmazott stílusok.*/
+@media (max-width: 768px) { 
     .hero-container {
         width: 90%;
-        height: 16rem;
+        height: 18rem;
     }
+
     .hero-title {
-        font-size: 1.5em;
+    font-size: 1.8rem;
     }
 
     .hero-subtitle {
-        font-size: 1.2em;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-container {
-        width: 90%;
-        height: 16rem;
-    }
-    .reserve-btn {
-        padding: 8px 24px;
+    font-size: 1.4rem;  
     }
 }
