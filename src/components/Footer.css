@@ -1,7 +1,7 @@
 .footer-layout {
   display: flex;  /* Rugalmas elrendezés */    
   flex-wrap: wrap;  /* Több sorba kerülés */
-  width: 100%;  
+  width: 100%;    
   background-color: #495e57;
 }
 
@@ -29,6 +29,10 @@
   transition: color 0.3s ease;
 }
 
+.footer-links:hover {
+  color: #F4CE14;
+}
+
 address {
   font-style: normal; /* Normál betűstílus */
   color: white;
@@ -45,10 +49,6 @@ address {
   display: block; /* Blokk elem */
   color: white;
   text-decoration: none;  /* Szöveg aláhúzás eltávolítása */
-}
-
-.footer-links:hover {
-  color: #F4CE14;
 }
 
 .footer-copyright {
