@@ -1,4 +1,4 @@
-.hero-container {
+.hero-container {   
     margin: 0 auto;     /*Középre igazítja a hero szekciót vízszintesen.*/
     width: 65%;         /* A szélességet a szülő konténer 65%-ára állítja (csökkenti).*/
     height: 18rem;      /*Fix magasságot állít be.*/
