@@ -1,4 +1,5 @@
 import SocialCard from './SocialCard';
+import './SocialCard.css';
 import './SocialCardList.css';
 
 /**
