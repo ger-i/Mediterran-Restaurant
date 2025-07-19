@@ -1,5 +1,5 @@
 import SocialCard from './SocialCard';
-import './SocialCard.css';
+import SocialCardList from './SocialCardList';
 
 /**
  * SocialCardList komponens - Testimonial/vélemény lista
