@@ -1,6 +1,13 @@
 import { useState } from "react";
 import "./BookingForm.css";
 
+/**
+ * Foglalási űrlap komponens
+ * Lehetővé teszi a felhasználók számára, hogy asztalt foglaljanak az étteremben.
+ * A felhasználók megadhatják a nevüket, email címüket, a foglalás dátumát és időpontját,
+ * a vendégek számát és az alkalmat.                
+*/
+
 // Email validáció regex segítségével
 const validateEmail = (email) => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.toLowerCase());
