@@ -33,28 +33,6 @@
   text-align: left;
 }
 
-/* Mobilon a number input nyilak megjelenítése */
-.form-control[type="number"] {
-  -webkit-appearance: textfield;
-  -moz-appearance: textfield;
-  appearance: textfield;
-}
-
-/* WebKit böngészőkben (Safari, Chrome) a spinner nyilak megjelenítése */
-.form-control[type="number"]::-webkit-outer-spin-button,
-.form-control[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: inner-spin-button;
-  opacity: 1;
-  height: auto;
-  width: auto;
-  cursor: pointer;
-}
-
-/* Firefox-ban a spinner nyilak megjelenítése */
-.form-control[type="number"] {
-  -moz-appearance: number-input;
-}
-
 .form-control,
 .form-select {
   width: 100%;
@@ -113,6 +91,11 @@
   box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: auto;
+  margin: 0;
+}
 
 @media (max-width: 768px) {
   .booking-form-container {
@@ -127,4 +110,5 @@
   .booking-form-title {
     font-size: 1.6rem;
   }
+}
 }
