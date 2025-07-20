@@ -33,6 +33,28 @@
   text-align: left;
 }
 
+/* Mobilon a number input nyilak megjelenítése */
+.form-control[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* WebKit böngészőkben (Safari, Chrome) a spinner nyilak megjelenítése */
+.form-control[type="number"]::-webkit-outer-spin-button,
+.form-control[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: inner-spin-button;
+  opacity: 1;
+  height: auto;
+  width: auto;
+  cursor: pointer;
+}
+
+/* Firefox-ban a spinner nyilak megjelenítése */
+.form-control[type="number"] {
+  -moz-appearance: number-input;
+}
+
 .form-control,
 .form-select {
   width: 100%;
