@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 /**
  * NavFoot komponens - Layout wrapper
  * Minden oldalon megjelenő közös elemek: navigációs sáv és lábléc
- * A React Router Outlet segítségével a közép részbe kerül az aktuális oldal tartalma
+ * A React Router Outlet segítségével a "közép" részbe kerül az aktuális oldal tartalma
  */
 
 const NavFoot = () => { 
