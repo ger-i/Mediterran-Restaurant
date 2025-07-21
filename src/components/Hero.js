@@ -1,3 +1,4 @@
+// React Router Link komponens importálása navigációhoz
 import { Link } from "react-router-dom";  
 import "./Hero.css";
 
@@ -9,7 +10,7 @@ import "./Hero.css";
 
 const Hero = () => {  
   return (
-    // Hero szekció container - általában teljes képernyős vagy nagy területű
+    // Hero szekció - tartalmazza a főcímet, alcímet és a call-to-action gombot
     <section className="hero-container">  
       <div> 
         <h1 className="hero-title">Mediterrán Étterem</h1>  
