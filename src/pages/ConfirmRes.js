@@ -1,16 +1,12 @@
-/**
- * ConfirmRes komponens - Foglalás megerősítő oldal
- * 
- * Ez a komponens a sikeres asztalfoglalás után jelenik meg, és megjeleníti a foglalás részleteit.
- */
-
 // PropTypes importálása - típusellenőrzéshez fejlesztési időben
 import PropTypes from 'prop-types';
 import "./ConfirmRes.css"
 
 /**
- * ConfirmRes komponens definíciója
+ * ConfirmRes komponens - Foglalás megerősítő oldal
+ * Ez a komponens a sikeres asztalfoglalás után jelenik meg, és megjeleníti a foglalás részleteit.
  */
+
 const ConfirmRes = ({ conf }) => {
   return (
     <section className="confirmation-container">
@@ -37,7 +33,6 @@ const ConfirmRes = ({ conf }) => {
 
 /**
  * PropTypes definíció - típusellenőrzés fejlesztési környezetben
- * 
  * Ez segít elkapni a típushibákat fejlesztés közben, és dokumentálja a komponens elvárásait más fejlesztők számára.
  */
 ConfirmRes.propTypes = {
