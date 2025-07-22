@@ -11,7 +11,8 @@ import des1 from "./images/specials/apple-empanadas.jpg";
 import des2 from "./images/menu/Tahini-Chocolate-Pudding.jpg";
 import des3 from "./images/menu/Pumpkin-Parfait.jpg";
 
-const data = [  // Az adatokat egy tömbben tároljuk, amelyeket a Card komponens segítségével jelenítünk meg.
+// Az adatokat egy tömbben tároljuk, amelyeket a Card komponens segítségével jelenítünk meg.
+const data = [  
   {
     id: 1,  // Az étel azonosítója.
     type: "appetizer",  // Az étel típusa.
