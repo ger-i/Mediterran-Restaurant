@@ -8,8 +8,8 @@
 }
 
 .social-card-list {
-    display: flex;    /* Flexbox elrendezés. Egymás mellé kerül nem egymás alá. */
-    flex-wrap: wrap;    /* Ha kifut a sorból, akkor sortörés. Így ha kicsinyítjük a képernyőt egymás alá rakja őket.*/
+    display: flex;    
+    flex-wrap: wrap;    
     justify-content: center;    
     gap: 10px;
 }
