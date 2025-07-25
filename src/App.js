@@ -1,5 +1,3 @@
-import './App.css';
-
 // React és React Router függőségek importálása
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
