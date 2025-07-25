@@ -1,22 +1,21 @@
 .hero-container {   
-    margin: 0 auto;     /*Középre igazítja a hero szekciót vízszintesen.*/
-    width: 65%;         /* A szélességet a szülő konténer 65%-ára állítja (csökkenti).*/
-    height: 18rem;      /*Fix magasságot állít be.*/
+    margin: 0 auto;     
+    width: 65%;         
+    height: 18rem;      
     background: linear-gradient(rgba(0, 0, 0, 0.455), rgba(0, 0, 0, 0.455)), url("../images/specials/hero2.jpg") no-repeat center / cover;
-    /* Színátmenetet alkalmaz a háttérképre, amely középre van igazítva és lefedi az egész területet.*/
-    overflow: hidden;    /*Biztosítja, hogy a túlcsorduló tartalom rejtve maradjon.*/
-    border-radius: 15px; /*Lekerekíti a hero szekció sarkait.*/
+    overflow: hidden;    
+    border-radius: 15px; 
 }
 
 .hero-title {
-    font-weight: normal;    /*Normál betűtípust alkalmaz.*/
+    font-weight: normal;   
     color: #F4CE14; 
     font-size: 2rem;
-    text-align: center;     /*Középre igazítja a szöveget.*/
+    text-align: center;     
 }
 
 .hero-subtitle {
-    font-weight: normal;    /*Normál betűtípust alkalmaz.*/
+    font-weight: normal;    
     color: #fff; 
     font-size: 1.5rem;  
     text-align: center;
@@ -28,25 +27,22 @@
 }
 
 .reserve-btn {
-    border: none;           /*Eltávolítja a keretet.*/
-    border-radius: 15px;    /*Lekerekíti a gomb sarkait.*/
-    background: #F4CE14;  /*Beállítja a háttérszínt.*/
-    margin: 2.5rem auto 0;  /* felső, jobb-bal, alsó */
-    display: block;         /*Blokkszintű elemmé teszi a gombot.*/
-    cursor: pointer;        /*Megváltoztatja a kurzort pointerre hover esetén.*/
-    padding: 5px 20px;      /*Belső margókat állít be.*/
-    transition: all 0.3s ease; /* Smooth átmenet */
-}
-/*A margin-left: auto; és margin-right: auto; beállításokkal a gomb középre kerül a szülőelemén belül. 
-A display: block; biztosítja, hogy a gomb blokkszintű elemként viselkedjen, így a margók megfelelően működnek.*/
-
-
-.hero-link {    /*A hivatkozásokra alkalmazott stílusok.*/
-    text-decoration: none; /*Eltávolítja a hivatkozás aláhúzását.*/
+    border: none;          
+    border-radius: 15px;   
+    background: #F4CE14;  
+    margin: 2.5rem auto 0;  
+    display: block;         
+    cursor: pointer;      
+    padding: 5px 20px;    
+    transition: all 0.3s ease;
 }
 
-.reserve-btn:hover {    /*A gombra mutatva a háttérszín sárgára változik.*/
-    color: white;     /*Fehérre változtatja a szöveg színét hover esetén*/
+.hero-link {    
+    text-decoration: none; 
+}
+
+.reserve-btn:hover {    
+    color: white;    
 }
 
 
