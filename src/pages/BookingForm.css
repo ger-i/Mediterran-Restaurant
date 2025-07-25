@@ -130,6 +130,7 @@
   box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
   .booking-form-container {
     padding: 1rem;
