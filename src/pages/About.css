@@ -1,13 +1,13 @@
 .about-section {  
   max-width: 75rem;
   margin: 0 auto;
-  margin-block: 1rem; /*A margin-block tulajdonság egyszerre állítja be a felső (margin-top) és alsó (margin-bottom) margót. Ez egy modernebb és rövidebb írásmód.*/   
-  display: flex; /*Így került a szöveg mellé a kép és nem alá*/
-  justify-content: space-between; /*A flexbox elemeket a konténerben egyenletesen osztja el, a konténer szélességét figyelembe véve. */
+  margin-block: 1rem; 
+  display: flex; 
+  justify-content: space-between;
 }
 
 .about-content {
-  flex: 0 0 50%;  /*A flex tulajdonságok a flexbox elemek méretét, sorrendjét és viselkedését szabályozzák. A flex tulajdonságok három értéket tartalmaznak: flex-grow, flex-shrink és flex-basis. */
+  flex: 0 0 50%; 
 }
 
 .about-title {
@@ -22,18 +22,18 @@
 }
 
 .about-text {
-  line-height: 1.6rem;  /*A line-height tulajdonság beállítja a sorok közötti távolságot egy elemben. */
+  line-height: 1.6rem;  
   color: black;
 }
 
 .about-text-open::before {
-  content: "⏰"; /* Unicode óra ikon */
-  margin-right: 0.5rem; /* Kis térköz az ikon és a szöveg között */
+  content: "⏰";
+  margin-right: 0.5rem; 
 }
 
 .about-text-reservation::before {
-  content: "📅"; /* Unicode óra ikon */
-  margin-right: 0.5rem; /* Kis térköz az ikon és a szöveg között */
+  content: "📅"; 
+  margin-right: 0.5rem; 
 }
 
 .about-text-open,
@@ -44,7 +44,7 @@
   font-weight: bold;
 }
 
-.about-images { /*A képek elrendezését szabályozza */
+.about-images { 
   margin-top: 3rem;
 }
 
@@ -60,7 +60,7 @@
 }
 
 
-@media screen and (max-width: 1200px) { /*A max-width tulajdonság a képernyő szélességét határozza meg, amelyen belül a stílusok érvényesek. */
+@media screen and (max-width: 1200px) { 
   .about-section{
     margin-right: 2rem;
     margin-left: 2rem;
@@ -68,7 +68,7 @@
 }
 
 
-@media screen and (max-width: 768px) {  /*A max-width tulajdonság a képernyő szélességét határozza meg, amelyen belül a stílusok érvényesek. */
+@media screen and (max-width: 768px) { 
   .about-section {
     flex-direction: column;
     text-align: center;
