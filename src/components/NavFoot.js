@@ -1,11 +1,14 @@
+// React Router DOM import - az Outlet komponens az aktuális route tartalmát jeleníti meg
+import { Outlet } from "react-router-dom";
+
+// Saját komponensek importálása
 import Navbar from "../components/Navbar";  
 import Footer from "../components/Footer";  
-import { Outlet } from "react-router-dom";  
 
 /**
- * NavFoot komponens - Layout wrapper
- * Minden oldalon megjelenő közös elemek: navigációs sáv és lábléc
- * A React Router Outlet segítségével a közép részbe kerül az aktuális oldal tartalma
+ * NavFoot komponens - Ez egy layout wrapper komponens, amely biztosítja, 
+ * hogy minden oldalon megjelenjen a navigációs sáv és a lábléc.
+ * A React Router DOM Outlet segítségével a "közép" részbe kerül az aktuális oldal tartalma
  */
 
 const NavFoot = () => { 

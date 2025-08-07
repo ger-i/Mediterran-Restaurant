@@ -4,16 +4,13 @@
   justify-content: space-between; /* Elemeken belüli térköz */
   align-items: center; /* Középre igazítás */
   padding-right: 20rem; /* Jobb oldali belső margó */
-  /*background-color: #495e57;*/
 }
-
 
 /* Logó */
 .logo img { 
   padding-left: 19rem; /* Bal oldali belső margó */
   margin: 1rem; /* Külső margó */
 }
-
 
 /* Menü ikon (hamburger) */
 .menu-icon {  
@@ -23,14 +20,14 @@
   margin-top: 0.4rem; /* Felső margó */
 }
 
-.menu-icon .bar { /* Menü ikon sávok */
+/* Menü ikon sávok */
+.menu-icon .bar { 
   width: 25px; /* Szélesség */
   height: 3px; /* Magasság */
-  background-color: black; /* Háttérszín */
+  background-color: #495e57;
   margin: 4px 0; /* Felső és alsó margó 4px*/
   transition: 0.5s; /* Átmeneti idő */
-}
-  
+} 
 
 /* Navigációs sáv linkek */
 .nav-links {
