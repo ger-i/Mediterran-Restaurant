@@ -22,12 +22,12 @@ const Hero = () => {
       <div className="flex flex-col items-center justify-center h-full text-center text-white px-4">
         
         {/* Főcím - sárga szín, normál betűstílus, reszponzív méret */}
-        <h1 className="text-[2rem] text-[#F4CE14] font-normal md:text-[1.8rem]">
+        <h1 className="text-[1.6rem] text-[#F4CE14] font-normal md:text-[1.8rem]">
           Mediterrán Étterem
         </h1>
 
         {/* Alcím - fehér szín, normál betűstílus, reszponzív méret */}
-        <h2 className="text-[1.5rem] text-white font-normal md:text-[1.4rem]">
+        <h2 className="text-[1.4rem] text-white font-normal md:text-[1.4rem]">
           Budapest
         </h2>
 
@@ -43,7 +43,7 @@ const Hero = () => {
           className="no-underline" // Link aláhúzás eltávolítása
         >
           {/* Call-to-action gomb - sárga háttér, lekerekített, hover effekt */}
-          <button className="mt-[2.5rem] px-5 py-1.5 bg-[#F4CE14] rounded-[15px] border-none cursor-pointer transition duration-300 hover:text-white">
+          <button className="mt-[2.1rem] px-5 py-1.5 bg-[#F4CE14] rounded-[15px] border-none cursor-pointer transition duration-300 hover:text-white">
             Asztalfoglalás
           </button>
         </Link>
