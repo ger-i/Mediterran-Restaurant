@@ -12,7 +12,7 @@ const Hero = () => {
   return (
     // Hero szekció konténer - háttérkép, lekerekített sarkok, fix méret
     <section
-      className="mx-auto w-[65%] h-[18rem] overflow-hidden rounded-[15px] bg-cover bg-center bg-no-repeat relative"
+      className="mx-auto w-[73%] md:w-[65%] h-[18rem] overflow-hidden rounded-[15px] bg-cover bg-center bg-no-repeat relative"
       style={{
         // Háttérkép és sötét átlátszó réteg a szöveg olvashatóságáért
         backgroundImage: `linear-gradient(rgba(0,0,0,0.455), rgba(0,0,0,0.455)), url(${heroBg})`,
