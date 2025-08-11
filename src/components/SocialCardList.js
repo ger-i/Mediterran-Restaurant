@@ -1,27 +1,28 @@
 import SocialCard from './SocialCard';
-import './SocialCard.css';
-import './SocialCardList.css';
 
 /**
- * SocialCardList komponens - Testimonial/vélemény lista
+ * SocialCardList komponens - Vélemények szekció Tailwind CSS-sel
  * Több vendég véleményét jeleníti meg SocialCard komponensek segítségével
- * Container komponens, amely kezeli a testimonials szekció teljes megjelenítését
  */
 
-const SocialCardList = ({ data }) => {  
+const SocialCardList = ({ data }) => {
   return (
-    <div className="social-card-container"> 
-      <h2 className="testimonial-heading">Vendégeink mondták!</h2>  
-      
-      <div className="social-card-list">  
-        {/* Dinamikus renderelés - végigiterálás a testimonial adatokon */}
-        {data.map((card) => ( 
-          <SocialCard 
-            key={card.name}    // React key - név alapján (egyedi azonosító)
-            {...card}          // Spread operator - összes card property átadása
-          />  
+    // Fő konténer - középre igazítás, világos háttér
+    <div className="text-center bg-[#EDEFEE] py-4">
+      {/* Cím - felső és alsó padding */}
+      <h2 className="py-4 text-2xl font-semibold text-black">
+        Vendégeink mondták!
+      </h2>
+
+      {/* Véleménykártyák konténere - flexbox, wrap, középre igazítás, gap */}
+      <div className="flex flex-wrap justify-center gap-2">
+        {data.map((card) => (
+          <SocialCard
+            key={card.name} // Egyedi kulcs a név alapján
+            {...card}       // Minden prop átadása a SocialCard-nak
+          />
         ))}
-      </div>  
+      </div>
     </div>
   );
 };
