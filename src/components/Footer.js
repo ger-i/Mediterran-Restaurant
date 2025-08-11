@@ -1,58 +1,57 @@
-import { Link } from "react-router-dom";  
+import { Link } from "react-router-dom";
 import FooterImg from "../images/logos/logo_2.png";
-import "./Footer.css";
 
 /**
- * Footer komponens - Oldal lábléce
- * Tartalmazza a logo-t, oldaltérképet, kapcsolati adatokat és copyright információt
+ * Footer komponens - Tailwind CSS verzió
+ * Tartalmazza a logót, navigációs linkeket, kapcsolati adatokat és copyright szöveget
  */
-const Footer = () => {  
+
+const Footer = () => {
   return (
-    <>
-      {/* Fő footer container */}
-      <footer className="footer-layout">  
+    <footer className="w-full bg-[#495e57] text-white">
+      
+      {/* Fő tartalom konténer: logó + navigáció + kapcsolat */}
+      <div className="flex flex-col lg:flex-row flex-wrap">
         
-        {/* Logo szekció */}
-        <div className="footer-branding">    
-          <img src={FooterImg} alt="Mediterran footer pic" />
+        {/* Logó szekció - bal oldalon nagy képernyőn */}
+        <div className="flex-1 p-2 text-center lg:text-left">
+          <img
+            src={FooterImg}
+            alt="Mediterran footer pic"
+            className="pl-[1rem] mx-auto lg:mx-0 max-[1200px]:h-[3.2rem] pr-12"
+          />
         </div>
-        
-        {/* Oldaltérkép szekció - navigációs linkek */}
-        <div className="footer-sitemap">  
-          <h4>OLDALTÉRKÉP</h4>
-          {/* Belső linkek az oldal különböző szakaszaihoz */}
-          <Link className="footer-links" to="/">Főoldal</Link>    
-          <Link className="footer-links" to="/about">Rólunk</Link>
-          <Link className="footer-links" to="/menu">Étlap</Link>
-          <Link className="footer-links" to="/reserve">Asztalfoglalás</Link>  
+
+        {/* Oldaltérkép szekció */}
+        <div className="flex-1 p-2 text-center">
+          <h4 className="text-[1.2rem] md:text-[1.5rem] font-bold">OLDALTÉRKÉP</h4>
+
+          {/* Navigációs linkek - reszponzív elrendezés */}
+          <Link to="/" className="block text-[1rem] md:text-[1.1rem] py-1 hover:text-[#F4CE14] transition-colors">Főoldal</Link>
+          <Link to="/about" className="block text-[1rem] md:text-[1.1rem] py-1 hover:text-[#F4CE14] transition-colors">Rólunk</Link>
+          <Link to="/menu" className="block text-[1rem] md:text-[1.1rem] py-1 hover:text-[#F4CE14] transition-colors">Étlap</Link>
+          <Link to="/reserve" className="block text-[1rem] md:text-[1.1rem] py-1 hover:text-[#F4CE14] transition-colors">Asztalfoglalás</Link>
         </div>
-        
-        {/* Kapcsolati információk szekció */}
-        <div className="footer-contact">  
-          <h4>KAPCSOLAT</h4>
-          {/* Cím - szemantikus address elem használata */}
-          <address>
+
+        {/* Kapcsolat szekció */}
+        <div className="flex-1 p-2 text-center">
+          <h4 className="text-[1.2rem] md:text-[1.5rem] font-bold">KAPCSOLAT</h4>
+          {/* Kapcsolati adatok - cím, telefon, email */}
+          <address className="not-italic text-white text-[0.9rem] md:text-[1.1rem]">
             1052 Budapest,
             <br />
             Galamb utca 2.
           </address>
-          {/* Telefonszám - kattintható link telefonhíváshoz */}
-          <a className="footer-tel" href="tel:+11234567890">
-            06 1 123 4567
-          </a>
-          <br />
-          {/* Email cím - kattintható link email küldéshez */}
-          <a className="footer-email" href="mailto: mediterran@gmail.com">
-            mediterran@gmail.com
-          </a>
+          <a href="tel:+11234567890" className="block pt-[2.3rem] text-white no-underline">06 1 123 4567</a>
+          <a href="mailto:mediterran@gmail.com" className="block text-white no-underline">mediterran@gmail.com</a>
         </div>
-        
-        {/* Copyright szekció */}
-        <div className="footer-copyright">
-          <p>© Mediterrán Étterem by Geri.</p>
-        </div>
-      </footer>
-    </>
+      </div>
+
+      {/* Copyright szekció */}
+      <div className="w-full py-2 text-center">
+        <p className="text-[#ccc] text-sm m-0">© Mediterrán Étterem by Geri.</p>
+      </div>
+    </footer>
   );
 };
 

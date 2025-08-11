@@ -163,4 +163,6 @@ Ez a projekt MIT licenc alatt áll. Lásd a [LICENSE](LICENSE) fájlt a részlet
 
 ---
 
+Link: https://mediterran-restaurant.netlify.app/
+
 ⭐ Ha tetszik a projekt, adj neki egy csillagot!

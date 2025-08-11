@@ -2,8 +2,8 @@
   width: 320px;
   height: 400px; 
   border-radius: 15px;
-  overflow: hidden; /* A tartalom ne lógjon ki a kártyából */
-  transition: transform 0.3s ease;  /* Átmenet a kártya mozgatásához */
+  overflow: hidden; 
+  transition: transform 0.3s ease;  
   margin: 20px;
   background: #495e57;
 }
@@ -13,17 +13,17 @@
 }
 
 .card .imgBx {
-  height: 240px;  /* A kép magassága */
+  height: 240px;  
 }
 
 .content {
   padding: 5px;
-  transition: transform 0.3s ease; /* Átmenet a szövegre */
-  background: #495e57; /* A háttér színe. Ha kivesszük nem követi a szöveget felfele. */
+  transition: transform 0.3s ease;
+  background: #495e57; 
 }
 
 .card:hover .content {
-  transform: translateY(-70px); /* A szövegrész és a háttér feljebb mozdul */
+  transform: translateY(-70px); 
 }
 
 .price {
@@ -65,4 +65,5 @@
   .product-details h1 {
   font-size: 1rem;
   }
+
 }
