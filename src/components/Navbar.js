@@ -30,8 +30,8 @@ const Nav = () => {
     <nav className={`flex items-center justify-between pr-[20rem] max-[1200px]:pr-4 relative ${menuOpen ? 'open' : ''}`}>
 
       {/* Logó - főoldalra navigál */}
-      <NavLink to="/" className="pl-[19rem] m-4 max-[1200px]:pl-4">
-        <img src={Logo} alt="logo" className="h-auto max-[1200px]:h-[3.1rem]" />
+      <NavLink to="/" className="pl-[1rem] m-4 max-[1200px]:pl-4">
+        <img src={Logo} alt="logo" className="h-auto max-[1200px]:h-[3.2rem]" />
       </NavLink>
 
       {/* Hamburger menü ikon - csak mobilon látható */}
