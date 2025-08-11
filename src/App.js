@@ -19,7 +19,7 @@ import Reserve from "./pages/Reserve";
 function App() {
   return (
     // BrowserRouter: HTML5 history API-t használó router
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       {/* ScrollToTop: Minden route váltáskor a tetejére görget */}
       <ScrollToTop />
       
