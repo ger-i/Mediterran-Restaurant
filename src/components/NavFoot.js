@@ -1,23 +1,29 @@
-// React Router DOM import - az Outlet komponens az aktuális route tartalmát jeleníti meg
-import { Outlet } from "react-router-dom";
-
-// Saját komponensek importálása
-import Navbar from "../components/Navbar";  
-import Footer from "../components/Footer";  
+import { Outlet } from "react-router-dom"; // Az aktuális route tartalmát jeleníti meg
+import Navbar from "../components/Navbar";  // Felső navigációs sáv
+import Footer from "../components/Footer";  // Alsó lábléc
 
 /**
- * NavFoot komponens - Ez egy layout wrapper komponens, amely biztosítja, 
- * hogy minden oldalon megjelenjen a navigációs sáv és a lábléc.
- * A React Router DOM Outlet segítségével a "közép" részbe kerül az aktuális oldal tartalma
+ * NavFoot komponens - Layout wrapper, amely minden oldalra ráteszi a navigációt és a láblécet.
+ * A középső tartalom az Outlet-en keresztül dinamikusan változik az URL alapján.
+ * A flexbox és min-h-screen biztosítja, hogy a lábléc mindig az oldal alján legyen.
  */
 
 const NavFoot = () => { 
   return (
-    <>  
-      <Navbar />  {/* Felső navigációs sáv - minden oldalon megjelenik */}
-      <Outlet />  {/* Outlet - ide kerül az aktuális route tartalma. Ez a hely dinamikusan változik az URL szerint */}
-      <Footer />  {/* Alsó lábléc - minden oldalon megjelenik */}
-    </>
+    // Teljes oldal konténer: oszlopos elrendezés, minimum képernyőmagassággal
+    <div className="flex flex-col min-h-screen">
+
+      {/* Navigációs sáv - mindig a tetején */}
+      <Navbar />
+
+      {/* Fő tartalom - az aktuális oldal komponense kerül ide */}
+      <main className="flex-grow">
+        <Outlet />
+      </main>
+
+      {/* Lábléc - mindig az oldal alján marad */}
+      <Footer />
+    </div>
   );
 };
 
