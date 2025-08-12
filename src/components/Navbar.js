@@ -1,7 +1,7 @@
 // Navbar.js - Reszponzív navigációs sáv komponens
 // Ez a komponens a weboldal navigációs sávját valósítja meg, amely mobilon hamburger menüvel, asztali nézetben pedig hagyományos navigációval jelenik meg.       
 
-import React, { useState } from 'react';  
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from '../images/logos/logo_1.png';
 
@@ -63,7 +63,7 @@ const Nav = () => {
               to={path}
               onClick={closeMenu}
               className={({ isActive }) =>
-                `text-black no-underline text-[1.1rem] transition-colors duration-300 hover:text-[#F4CE14] max-[1200px]:text-[1rem] ${isActive ? 'text-[#04AA6D]' : ''}`
+                `no-underline text-[1.1rem] transition-colors duration-300 hover:text-[#F4CE14] max-[1200px]:text-[1rem] ${isActive ? 'text-[#04AA6D]' : 'text-black'}`
               }
             >
               {label}
