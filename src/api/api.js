@@ -1,31 +1,21 @@
-// Resource: https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js
+// Resource: "https://raw.githubusercontent.com/courseraap/capstone/main/api.js"
 
-const seededRandom = function (seed) {        
-  var m = 2**35 - 31;   
-  var a = 185852; 
-  var s = seed % m;
-  return function () {
-      return (s = s * a % m) / m;
-  };
-}
-
-const fetchAPI = function(date) {    
+const fetchAPI = function (date) {
   let result = [];
-  let random = seededRandom(date.getDate());
-
-  for(let i = 17; i <= 23; i++) {
-      if(random() < 0.5) {
-          result.push(i + ':00');
-      }
-      if(random() < 0.5) {
-          result.push(i + ':30');
-      }
+  
+  // A seededRandom függvényre már nincs szükség, mivel nem használunk véletlenszerűséget.
+  // A ciklus 17-től 23-ig megy végig, és mindegyik órához hozzáadja a 00-s és 30-as időpontot.
+  for (let i = 17; i <= 23; i++) {
+    result.push(i + ':00');
+    result.push(i + ':30');
   }
+  
   return result;
 };
 
-const submitAPI = function(formData) {    
+const submitAPI = function (formData) {
+  // Ez a függvény továbbra is a sikeres beküldést szimulálja.
   return true;
 };
-  
+
 export { fetchAPI, submitAPI };
