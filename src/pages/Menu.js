@@ -1,59 +1,64 @@
 import React, { useMemo } from 'react';
-import data from "../data"; 
-import Card from "../components/Card"; 
-import "./Menu.css";
+import data from "../data";
+import Card from "../components/Card";
 
-// Menü kategóriák konstans definíciója - könnyű bővíthetőség és karbantarthatóság
+/**
+ * Menü kategóriák definíciója
+ */
 const MENU_CATEGORIES = [
   { key: 'appetizer', title: 'Előételek', emoji: '🥗' },
   { key: 'main', title: 'Főételek', emoji: '🍽️' },
   { key: 'dessert', title: 'Desszertek', emoji: '🍰' }
 ];
 
-// Fő Menu komponens definíciója
 const Menu = () => {
-  // Memoizált kategorizálás - csak akkor számolódik újra, ha a data változik
-  // Performance optimalizálás: elkerüli a felesleges újraszámolásokat
   const categorizedMenu = useMemo(() => {
     return MENU_CATEGORIES.reduce((acc, category) => {
-      // Minden kategóriához szűrjük az adatokat típus szerint
       acc[category.key] = data.filter(item => item.type === category.key);
       return acc;
     }, {});
   }, []);
 
-  // Belső komponens egy menü szekció megjelenítéséhez
-  // Paraméterek: category (kategória adatok), items (az adott kategória ételei)
   const MenuSection = ({ category, items }) => {
-    // Üres kategória kezelése - ha nincs étel az adott kategóriában
     if (!items || items.length === 0) {
       return (
-        <section className="menu-section" aria-labelledby={`${category.key}-heading`}>
-          <h2 id={`${category.key}-heading`} className="menu-subtitle">
-            <span className="category-emoji" aria-hidden="true">{category.emoji}</span>
+        <section
+          className="bg-white rounded-xl p-8 shadow-md border-l-4 border-[#F4CE14]"
+          aria-labelledby={`${category.key}-heading`}
+        >
+          <h2
+            id={`${category.key}-heading`}
+            className="text-[1.6rem] mb-8 text-[#495e57] flex flex-col md:flex-row items-center justify-center gap-2"
+          >
+            <span className="text-[1.8rem]" aria-hidden="true">{category.emoji}</span>
             {category.title}
           </h2>
-          <div className="empty-category">
+          <div className="text-center p-8 text-gray-600 italic">
             <p>Jelenleg nincs elérhető étel ebben a kategóriában.</p>
           </div>
         </section>
       );
     }
 
-    // Normál kategória megjelenítése - ha vannak ételek
     return (
-      <section className="menu-section" aria-labelledby={`${category.key}-heading`}>
-        {/* Kategória címe emoji-val */}
-        <h2 id={`${category.key}-heading`} className="menu-subtitle">
-          <span className="category-emoji" aria-hidden="true">{category.emoji}</span>
+      <section
+        className="bg-white rounded-xl p-8 shadow-md border-l-4 border-[#F4CE14]"
+        aria-labelledby={`${category.key}-heading`}
+      >
+        <h2
+          id={`${category.key}-heading`}
+          className="text-[1.6rem] mb-8 text-[#495e57] flex flex-col md:flex-row items-center justify-center gap-2"
+        >
+          <span className="text-[1.8rem]" aria-hidden="true">{category.emoji}</span>
           {category.title}
         </h2>
-        
-        {/* Ételek rácsos elrendezésben */}
-        <div className="menu-grid" role="list">
+
+        <div
+          className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+          role="list"
+        >
           {items.map((item) => (
             <div key={item.id || item.name} role="listitem">
-              {/* Card komponens minden ételhez */}
               <Card data={item} />
             </div>
           ))}
@@ -62,31 +67,31 @@ const Menu = () => {
     );
   };
 
-  // Hibakezelés - ha nincs adat vagy üres a data array
   if (!data || data.length === 0) {
     return (
-      <div className="menu-container">
-        <h1 className="menu-title">Étlapunk</h1>
-        <div className="error-message">
+      <div className="max-w-[1200px] mx-auto px-4 py-8">
+        <h1 className="text-[3rem] text-[#F4CE14] mb-4 text-center drop-shadow-md">
+          Étlapunk
+        </h1>
+        <div className="text-center p-12 bg-[#f8f9fa] rounded-xl border-l-4 border-red-600">
           <p>Sajnáljuk, jelenleg nem tudjuk betölteni az étlapot. Kérjük, próbálja újra később.</p>
         </div>
       </div>
     );
   }
 
-  // Fő render - teljes étlap megjelenítése
   return (
-    <main className="menu-container">
-      {/* Étlap fejléc */}
-      <header className="menu-header">
-        <h1 className="menu-title">Étlapunk</h1>
-        <p className="menu-description">
+    <main className="max-w-[1200px] mx-auto px-4 py-8">
+      <header className="text-center mb-12">
+        <h1 className="text-[3rem] text-[#F4CE14] mb-4 drop-shadow-md">
+          Étlapunk
+        </h1>
+        <p className="text-[1.2rem] text-gray-600 italic">
           Fedezze fel mediterrán ihletésű ételeink válogatását
         </p>
       </header>
-      
-      {/* Étlap tartalom - minden kategória megjelenítése */}
-      <div className="menu-content">
+
+      <div className="flex flex-col gap-12">
         {MENU_CATEGORIES.map((category) => (
           <MenuSection
             key={category.key}
