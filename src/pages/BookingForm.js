@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useState } from "react"; // React useState hook importálása
 
-// Email validációs függvény
+// Email validációs függvény (egyszerű regex)
 const validateEmail = (email) => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.toLowerCase());
 };
 
-// Holnapi dátum kiszámítása
+// Holnapi dátum kiszámítása (foglalás csak holnaptól)
 const today = new Date();
 const minDate = new Date(today.getTime() + 24 * 60 * 60 * 1000).toISOString().split("T")[0];
 
+// Foglalási űrlap komponens
 const BookingForm = ({ setConfirm, setMsg, availableTimes = ["17:00", "18:00", "19:00", "20:00", "21:00"] }) => {
+  // Állapotkezelés
   const [formData, setFormData] = useState({ lastName: "", firstName: "", email: "" });
   const [date, setDate] = useState(minDate);
   const [time, setTime] = useState("");
@@ -17,6 +19,7 @@ const BookingForm = ({ setConfirm, setMsg, availableTimes = ["17:00", "18:00", "
   const [occasion, setOccasion] = useState("");
   const [emailError, setEmailError] = useState(false);
 
+  // Input mezők változáskezelése
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -25,6 +28,7 @@ const BookingForm = ({ setConfirm, setMsg, availableTimes = ["17:00", "18:00", "
     }
   };
 
+  // Vendégszám módosítása gombokkal
   const handleGuestChange = (change) => {
     const newValue = guests + change;
     if (newValue >= 1 && newValue <= 20) {
@@ -32,6 +36,7 @@ const BookingForm = ({ setConfirm, setMsg, availableTimes = ["17:00", "18:00", "
     }
   };
 
+  // Dátumváltozás kezelése (minimum holnap)
   const handleDateChange = (e) => {
     const selectedDate = e.target.value;
     if (selectedDate >= minDate) {
@@ -39,22 +44,29 @@ const BookingForm = ({ setConfirm, setMsg, availableTimes = ["17:00", "18:00", "
     }
   };
 
+  // Foglalás beküldése
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.lastName || !formData.firstName || !validateEmail(formData.email) || !date || !time || !guests || !occasion) {
+    const { lastName, firstName, email } = formData;
+
+    // Ellenőrzés: minden mező ki van töltve és email érvényes
+    if (!lastName || !firstName || !validateEmail(email) || !date || !time || !guests || !occasion) {
       alert("Kérjük, töltsön ki minden mezőt helyesen!");
       return;
     }
 
+    // Üzenet összeállítása visszajelzéshez
     setMsg({
-      line1: `Kedves ${formData.lastName} ${formData.firstName}!`,
+      line1: `Kedves ${lastName} ${firstName}!`,
       line2: `Az ön asztalát ${guests} személyre lefoglaltuk a következő időpontra: ${date} ${time}.`,
       line3: `Hamarosan találkozunk a(z) ${occasion} eseményen!`,
     });
 
+    // Foglalás megerősítése
     setConfirm(true);
   };
 
+  // JSX visszatérés – az űrlap megjelenítése
   return (
     <div className="max-w-4xl mx-auto p-8">
       <h2 className="text-3xl font-semibold text-center mb-8">Asztalfoglalás</h2>
@@ -144,26 +156,29 @@ const BookingForm = ({ setConfirm, setMsg, availableTimes = ["17:00", "18:00", "
         <div className="w-full md:w-[48%]">
           <label htmlFor="guests" className="block mb-2 font-semibold">Vendégek száma</label>
           <div className="flex items-center">
+            {/* Mínusz gomb */}
             <button
               type="button"
-              className="w-10 h-10 border-2 rounded-lg font-bold text-xl disabled:opacity-50 hover:bg-gray-200"
+              className="w-10 h-10 flex items-center justify-center border-2 rounded-lg font-bold text-xl leading-none disabled:opacity-50 hover:bg-gray-200"
               onClick={() => handleGuestChange(-1)}
               disabled={guests <= 1}
             >
-              −
+              &minus;
             </button>
+
+            {/* Vendégszám megjelenítése */}
             <input
-              type="number"
+              type="text"
               id="guests"
-              className="mx-2 w-full text-center p-3 border-2 rounded-lg"
+              className="mx-2 w-full text-center p-3 border-2 rounded-lg appearance-none focus:outline-none"
               value={guests}
               readOnly
-              min={1}
-              max={20}
             />
+
+            {/* Plusz gomb */}
             <button
               type="button"
-              className="w-10 h-10 border-2 rounded-lg font-bold text-xl disabled:opacity-50 hover:bg-gray-200"
+              className="w-10 h-10 flex items-center justify-center border-2 rounded-lg font-bold text-xl leading-none disabled:opacity-50 hover:bg-gray-200"
               onClick={() => handleGuestChange(1)}
               disabled={guests >= 20}
             >
