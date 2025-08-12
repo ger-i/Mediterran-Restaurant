@@ -1,48 +1,48 @@
-// PropTypes importálása - típusellenőrzéshez fejlesztési időben
-import PropTypes from 'prop-types';
-import "./ConfirmRes.css"
+import PropTypes from 'prop-types'; // React prop-types könyvtár importálása
 
 /**
- * ConfirmRes komponens - Foglalás megerősítő oldal
- * Ez a komponens a sikeres asztalfoglalás után jelenik meg, és megjeleníti a foglalás részleteit.
+ * ConfirmRes komponens - Foglalás megerősítő oldal Tailwind CSS-sel
+ * Megjeleníti a sikeres foglalás részleteit, vizuális visszajelzéssel.
  */
-
 const ConfirmRes = ({ conf }) => {
   return (
-    <section className="confirmation-container">
-      {/* Főcím - sikeres foglalás jelzése */}
-      <h2 className="confirmation-title">Foglalás megerősítve</h2>
-      
-      {/* Megerősítő üzenet részletei */}
-      <div className="confirmation-details">
-        {/* Vizuális siker ikon - zöld pipa */}
-        <div className="confirmation-icon">✓</div>
-        
-        {/* Személyes köszöntő (pl. "Kedves Nagy János!") */}
-        <p className="confirmation-line">{conf.line1}</p>
-        
-        {/* Foglalás konkrét részletei (dátum, idő, vendégek száma) */}
-        <p className="confirmation-line">{conf.line2}</p>
-        
-        {/* Búcsúzó üzenet alkalom említésével */}
-        <p className="confirmation-line">{conf.line3}</p>
+    <section className="flex flex-col items-center px-6 py-12 bg-gradient-to-br from-gray-100 to-gray-200">
+
+      {/* Főcím */}
+      <h2 className="mb-8 text-3xl md:text-4xl font-bold text-green-600 drop-shadow-sm">
+        Foglalás megerősítve
+      </h2>
+
+      {/* Részletek doboz */}
+      <div className="relative w-full max-w-xl p-8 bg-white rounded-lg text-center shadow-xl border border-white/20 overflow-hidden mb-2">
+
+        {/* Felső színes sáv */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-green-600 to-teal-400" />
+
+        {/* Zöld pipa ikon */}
+        <div className="w-14 h-14 mx-auto mb-6 flex items-center justify-center rounded-full bg-gradient-to-br from-green-600 to-teal-400 text-white text-2xl font-bold shadow-md">
+          ✓
+        </div>
+
+        {/* Üzenetsorok */}
+        <p className="mb-6 text-green-600 text-lg font-semibold">{conf.line1}</p>
+        <p className="mb-4 text-gray-700 text-base leading-relaxed">{conf.line2}</p>
+        <p className="mt-6 italic text-gray-500 text-base">{conf.line3}</p>
       </div>
     </section>
   );
 };
 
 /**
- * PropTypes definíció - típusellenőrzés fejlesztési környezetben
- * Ez segít elkapni a típushibákat fejlesztés közben, és dokumentálja a komponens elvárásait más fejlesztők számára.
+ * PropTypes - típusellenőrzés fejlesztési környezetben
+ * A conf prop egy kötelező objektum, amely három szöveges sort tartalmaz.
  */
 ConfirmRes.propTypes = {
-  // A conf prop egy objektum, amely kötelező
   conf: PropTypes.shape({
-    // Az objektum három kötelező string tulajdonsága
     line1: PropTypes.string.isRequired, // Személyes köszöntő
     line2: PropTypes.string.isRequired, // Foglalás részletei
     line3: PropTypes.string.isRequired  // Búcsúzó üzenet
-  }).isRequired // A teljes conf objektum kötelező
+  }).isRequired
 };
 
 export default ConfirmRes;
